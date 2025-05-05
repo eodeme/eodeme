@@ -1,0 +1,14 @@
+{
+	"recommendations": [
+		"svelte.svelte-vscode",
+		"vitest.explorer",
+		"esbenp.prettier-vscode",
+		"bradlc.vscode-tailwindcss",
+		"yoavbls.pretty-ts-errors",
+		"streetsidesoftware.code-spell-checker",
+		"dbaeumer.vscode-eslint",
+		"ms-vsliveshare.vsliveshare",
+		"yusukehirao.vscode-markuplint",
+		"eamodio.gitlens"
+	]
+}
