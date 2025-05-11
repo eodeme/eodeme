@@ -86,6 +86,9 @@ importers:
       jsdom:
         specifier: ^26.0.0
         version: 26.1.0
+      kakao.maps.d.ts:
+        specifier: ^0.1.40
+        version: 0.1.40
       playwright:
         specifier: ^1.52.0
         version: 1.52.0
@@ -1917,6 +1920,9 @@ packages:
 
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+
+  kakao.maps.d.ts@0.1.40:
+    resolution: {integrity: sha512-nX69MB1ok04epe3OqS+/tEeWBbU31GSQbvDPJmQRRltzzqn6t4jBsO5v1nzalUjCKzwcH2CptOc767NZ7Hbu3g==}
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -4923,6 +4929,8 @@ snapshots:
       universalify: 2.0.1
     optionalDependencies:
       graceful-fs: 4.2.11
+
+  kakao.maps.d.ts@0.1.40: {}
 
   keyv@4.5.4:
     dependencies:
