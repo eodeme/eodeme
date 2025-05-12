@@ -35,7 +35,30 @@
 			<p class="p-[16px] text-[24px]">{leftTime > 0 ? '⏳' : '⌛'} {leftTime / timer.interval}초 남음</p>
 		</label>
 	</article>
-	<progress id="progress" class="appearance-none h-[16px] block w-full [&::-webkit-progress-bar]:[rgba(0, 122, 255, 0.30)] [&::-webkit-progress-value]:[#007AFF]" value={timer.currentTime} max={timer.maxTime}></progress>
+	<progress id="progress" class="block w-full" value={timer.currentTime} max={timer.maxTime}></progress>
 </section>
 <style>
+#progress {
+	background-color: rgba(0, 122, 255, 0.30);
+}
+
+
+#progress::-webkit-progress-bar {
+  background-color: rgba(0, 122, 255, 0.30);
+  border-radius: 0;
+}
+
+#progress::-webkit-progress-value {
+  background-color: #007AFF;
+  border-radius: 0;
+}
+
+#progress::-moz-progress-bar {
+  background-color: #007AFF;
+}
+
+#progress::-ms-fill {
+  background-color: #007AFF;
+  border: none;
+}
 </style>
