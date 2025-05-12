@@ -31,8 +31,8 @@
 					2개의 분화구가 존재하는 화산지형이다.</p>
 			</div>
 		</div>
-		<label for="progress" class="self-end text-[16px] font-[500]">
-			<p class="p-[16px] text-[24px]">{leftTime > 0 ? '⏳' : '⌛'} {leftTime / timer.interval}초 남음</p>
+		<label for="progress" class="self-end text-[24px] font-[500] mb-[8px] mr-[16px] text-shadow-[0_8px_12px_rgba(0,0,0,0.15),0_4px_4px_rgba(0,0,0,0.30)]">
+			{leftTime > 0 ? '⏳' : '⌛'} {leftTime / timer.interval}초 남음
 		</label>
 	</article>
 	<progress id="progress" class="block w-full" value={timer.currentTime} max={timer.maxTime}></progress>
