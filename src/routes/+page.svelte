@@ -21,7 +21,7 @@
 
 </script>
 
-<section class="absolute left-0 bottom-0 w-full">
+<section class="absolute left-0 bottom-0 w-full z-1">
 	<article class="flex w-full justify-between">
 		<div class="flex">
 			<img class="w-[466px] rounded-tr-[8px]" src="/images/hintPicture.png" alt="hintImage" />
