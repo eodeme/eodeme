@@ -2,21 +2,27 @@
 	import { timer } from '../states/timer.svelte';
 
 	let leftTime = $derived(timer.maxTime - timer.currentTime);
+	let timeIsOut = $derived(leftTime <= 0);
 
 	$effect(() => {
 		const interval = setInterval(() => {
-			if (timer.currentTime >= timer.maxTime) {
-				// alert("시간이 다 되었습니다.");
-				clearInterval(interval);
-				return;
+			if (timer.currentTime < timer.maxTime) {
+				timer.currentTime += timer.interval;
 			}
-
-			timer.currentTime += timer.interval;
 		}, timer.interval);
 
 		return () => {
 			clearInterval(interval);
 		};
+	});
+
+	$effect(() => {
+		if (leftTime <= 0) {
+			setTimeout(() => {
+				alert('시간이 초과되었습니다.');
+				timer.currentTime = 0;
+			});
+		}
 	});
 
 	let allHint = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
@@ -47,6 +53,7 @@
 			</div>
 		</div>
 		<label
+			data-time-is-out={timeIsOut}
 			for="progress"
 			class="mr-[16px] mb-[8px] self-end text-[24px] font-[500] text-shadow-[0_8px_12px_rgba(0,0,0,0.15),0_4px_4px_rgba(0,0,0,0.30)]"
 		>
@@ -54,7 +61,12 @@
 			{leftTime / timer.interval}초 남음
 		</label>
 	</article>
-	<progress id="progress" class="block w-full" value={timer.currentTime} max={timer.maxTime}
+	<progress
+		id="progress"
+		class="block w-full"
+		value={timer.currentTime}
+		max={timer.maxTime}
+		data-time-is-out={timeIsOut}
 	></progress>
 </section>
 
@@ -80,5 +92,49 @@
 	#progress::-ms-fill {
 		background-color: #007aff;
 		border: none;
+	}
+
+	label[data-time-is-out='true'] {
+		animation: tilt-n-move-shaking 0.25s linear infinite;
+	}
+
+	progress[data-time-is-out='true'] {
+		animation: tilt-shaking 0.25s linear infinite;
+	}
+
+	@keyframes tilt-shaking {
+		0% {
+			transform: rotate(0deg);
+		}
+		25% {
+			transform: rotate(2deg);
+		}
+		50% {
+			transform: rotate(0eg);
+		}
+		75% {
+			transform: rotate(-2deg);
+		}
+		100% {
+			transform: rotate(0deg);
+		}
+	}
+
+	@keyframes tilt-n-move-shaking {
+		0% {
+			transform: translate(0, 0) rotate(0deg);
+		}
+		25% {
+			transform: translate(5px, 5px) rotate(5deg);
+		}
+		50% {
+			transform: translate(0, 0) rotate(0eg);
+		}
+		75% {
+			transform: translate(-5px, 5px) rotate(-5deg);
+		}
+		100% {
+			transform: translate(0, 0) rotate(0deg);
+		}
 	}
 </style>
