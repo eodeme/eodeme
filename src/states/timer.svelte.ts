@@ -1,4 +1,4 @@
-const maxTime = 60 * 1000; // 1 minute
+const maxTime = 10 * 1000;
 
 type TimerState = {
 	readonly maxTime: number;
