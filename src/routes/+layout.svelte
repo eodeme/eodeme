@@ -38,11 +38,11 @@
 
 		const overlay = new kakao.maps.CustomOverlay({
 			map,
-			content: `<article class="w-[128px] bg-white text-black">
-					<img src="/images/hintPicture.png" alt="overlay image" class="" />
-					<div>
-						<div class="">새별오름</div>
-						<button class="">자세히보기</button>
+			content: `<article class="w-[128px] h-[139.6px] flex flex-col items-center bg-gray-200 rounded shadow-md">
+					<img src="/images/hintPicture.png" alt="overlay image" class="w-full rounded-t-lg" />
+					<div class="font-medium flex flex-col items-center p-[5px]">
+						<div class="text-[10px] p-[2px]">새별오름</div>
+						<button class="text-[10px] p-[2px] bg-white w-[110px]">자세히보기</button>
 					</div>
 				</article>`,
 			position: marker.getPosition(),
