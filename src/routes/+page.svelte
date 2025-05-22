@@ -5,6 +5,9 @@
 	let timeIsOut = $derived(leftTime <= 0);
 
 	$effect(() => {
+		const disableTimer = new URLSearchParams(window.location.search).get('disableTimer') === 'true';
+		if (disableTimer) return () => {};
+
 		const interval = setInterval(() => {
 			if (timer.currentTime < timer.maxTime) {
 				timer.currentTime += timer.interval;
