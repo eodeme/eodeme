@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { timer } from '../states/timer.svelte';
 
 	let leftTime = $derived(timer.maxTime - timer.currentTime);
