@@ -1,6 +1,6 @@
 {
-	"jeju": [
-		{
+	"jeju": {
+		"애월읍": {
 			"type": "Feature",
 			"geometry": {
 				"type": "Polygon",
@@ -852,7 +852,7 @@
 				}
 			}
 		},
-		{
+		"한림읍": {
 			"type": "Feature",
 			"geometry": {
 				"type": "MultiPolygon",
@@ -1622,7 +1622,7 @@
 				}
 			}
 		},
-		{
+		"한경면": {
 			"type": "Feature",
 			"geometry": {
 				"type": "MultiPolygon",
@@ -2322,7 +2322,7 @@
 				}
 			}
 		},
-		{
+		"조천읍": {
 			"type": "Feature",
 			"geometry": {
 				"type": "MultiPolygon",
@@ -3265,7 +3265,7 @@
 				}
 			}
 		},
-		{
+		"구좌읍": {
 			"type": "Feature",
 			"geometry": {
 				"type": "MultiPolygon",
@@ -4271,9 +4271,9 @@
 				}
 			}
 		}
-	],
-	"seogwipo": [
-		{
+	},
+	"seogwipo": {
+		"성산읍": {
 			"type": "Feature",
 			"geometry": {
 				"type": "Polygon",
@@ -5157,7 +5157,7 @@
 				}
 			}
 		},
-		{
+		"대정읍": {
 			"type": "Feature",
 			"geometry": {
 				"type": "MultiPolygon",
@@ -5986,7 +5986,7 @@
 				}
 			}
 		},
-		{
+		"안덕면": {
 			"type": "Feature",
 			"geometry": {
 				"type": "MultiPolygon",
@@ -6677,7 +6677,7 @@
 				}
 			}
 		},
-		{
+		"중문동": {
 			"type": "Feature",
 			"geometry": {
 				"type": "Polygon",
@@ -7055,7 +7055,7 @@
 				}
 			}
 		},
-		{
+		"남원읍": {
 			"type": "Feature",
 			"geometry": {
 				"type": "MultiPolygon",
@@ -7900,7 +7900,7 @@
 				}
 			}
 		},
-		{
+		"표선면": {
 			"type": "Feature",
 			"geometry": {
 				"type": "Polygon",
@@ -8637,5 +8637,5 @@
 				}
 			}
 		}
-	]
+	}
 }
