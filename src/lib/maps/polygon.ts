@@ -18,7 +18,7 @@ export function drawPolygon({ map, area, overlay }: displayPolygonProps) {
 		fillOpacity: 0.7
 	});
 
-	function mouseOverEvent(mouseEvent: kakao.maps.MouseEvent) {
+	function mouseOverEvent(mouseEvent: kakao.maps.event.MouseEvent) {
 		polygon.setOptions({ fillColor: '#09f' });
 
 		overlay.setContent('<div class="area">' + area.name + '</div>');
@@ -26,11 +26,18 @@ export function drawPolygon({ map, area, overlay }: displayPolygonProps) {
 		overlay.setPosition(mouseEvent.latLng);
 		overlay.setMap(map);
 	}
+	function mouseClickEvent(mouseEvent: kakao.maps.event.MouseEvent) {
+		const latlng = mouseEvent.latLng;
+
+		const message = `${area.name} 위도와 경도 : ${latlng.getLat()}, + ${latlng.getLng()}`;
+		console.log(message, map.getLevel());
+	}
 	function mouseOutEvent() {
 		overlay.setMap(null);
 	}
 
 	kakao.maps.event.addListener(polygon, 'mouseover', mouseOverEvent);
+	kakao.maps.event.addListener(polygon, 'click', mouseClickEvent);
 	kakao.maps.event.addListener(polygon, 'mouseout', mouseOutEvent);
 
 	return [polygon, [mouseOverEvent, mouseOutEvent]] as const;
