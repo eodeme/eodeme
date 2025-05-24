@@ -1,6 +1,5 @@
 {
-	"type": "FeatureCollection",
-	"features": [
+	"jeju": [
 		{
 			"type": "Feature",
 			"geometry": {
@@ -4236,8 +4235,9 @@
 				"EMD_NM": "구좌읍",
 				"SGG_OID": 119
 			}
-		},
-
+		}
+	],
+	"seogwipo": [
 		{
 			"type": "Feature",
 			"geometry": {
