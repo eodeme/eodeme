@@ -44,7 +44,7 @@
 <section class="absolute bottom-0 left-0 z-1 w-full">
 	<article class="flex w-full justify-between">
 		<div class="flex">
-			<img class="w-[466px] rounded-tr-[8px]" src="/images/hintPicture.png" alt="hintImage" />
+			<img class="w-[466px] rounded-tr-[8px]" src="images/hintPicture.png" alt="hintImage" />
 			<div class="flex max-w-[406px] flex-col gap-[8px] self-end text-[16px] font-[500] text-white">
 				<p class="bg-black p-[16px]">
 					키워드: 일몰, 일출, 산, 해변, 걷기/등산, 가을, 자연경관, 수국
