@@ -4,6 +4,8 @@ interface Place {
 		description: string;
 		keywords: string[];
 		hints: string[];
+    EMD_CD: string; // 행정동 코드
+	  COL_ADM_SE: string; // 도시 코드
 	};
 	result: {
 		placeName: string;
