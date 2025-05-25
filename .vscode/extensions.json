@@ -9,6 +9,7 @@
 		"dbaeumer.vscode-eslint",
 		"ms-vsliveshare.vsliveshare",
 		"yusukehirao.vscode-markuplint",
-		"eamodio.gitlens"
+		"eamodio.gitlens",
+		"editorconfig.editorconfig"
 	]
 }
