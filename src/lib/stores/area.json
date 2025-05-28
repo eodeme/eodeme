@@ -15530,8 +15530,8 @@
 		},
 		"properties": {
 			"EMD_NM": "서귀포시내",
-			"EMD_CD": 5013101,
-			"COL_ADM_SE": 50130,
+			"EMD_CD": "5013101",
+			"COL_ADM_SE": "50130",
 			"SGG_OID": 4022,
 			"extends": {
 				"middlePoint": {
