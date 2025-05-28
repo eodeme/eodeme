@@ -3,6 +3,7 @@
 
 	import area from '$lib/stores/area.json';
 	import { drawPolygon, mapCoordsToLatLng } from '$lib/maps';
+	import { rows, checkIsAvailableArea } from '$lib/maps/areas';
 
 	let { map }: { map: kakao.maps.Map | null } = $props();
 
@@ -13,14 +14,6 @@
 		type: 'single'
 	});
 
-	const rows = [
-		{ city: 'jeju', areas: ['제주시', '제주시내', '애월', '한림', '조천', '구좌', '우도'] },
-		{
-			city: 'seogwipo',
-			areas: ['서귀포시', '서귀포시내', '성산', '대정', '안덕', '중문', '남원', '표선']
-		}
-	] as const;
-
 	$effect(() => {
 		if (!map) return;
 		if (!$value) return;
@@ -30,7 +23,7 @@
 
 		if ($value in area === false) throw new Error(`Area "${$value}" is not defined in area store`);
 
-		const selectedArea = area[$value as keyof typeof area];
+		const selectedArea = area[$value as AreaName];
 		const { middlePoint } = selectedArea.properties.extends;
 
 		map.setCenter(new kakao.maps.LatLng(middlePoint.latitude, middlePoint.longitude));
@@ -73,6 +66,7 @@
 					<li>
 						<button
 							class="toggle-item"
+							disabled={checkIsAvailableArea(areaName) === false}
 							use:melt={$item({ value: areaName, disabled: map === null })}
 						>
 							{areaName}
@@ -98,6 +92,11 @@
 
 		&:hover {
 			background-color: #b9b9b9;
+		}
+
+		&[disabled] {
+			background-color: #e0e0e0;
+			color: #9e9e9e;
 		}
 
 		&[aria-checked='true'] {

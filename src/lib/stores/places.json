@@ -1,0 +1,77 @@
+[
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202410/16/57127b8a-f9c3-4874-8541-3261e6da44d5.jpg",
+			"description": "분화구 형태의 오름이다. 약 10만 년 전 화산 활동으로 형성되었다.",
+			"keywords": ["제주도오름", "용암동굴", "트래킹", "제주자연", "오름추천"],
+			"hints": [
+				"제주도의 오름 중 유일하게 유네스코 세계자연유산에 등재되었다.",
+				"용암류가 경사를 따라 북동쪽 해안가까지 흘러갔으며 숲이 우거져 검게 보이는 것이 특징이다."
+			],
+			"EMD_CD": "50110259",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "거문오름",
+			"coordinate": { "latitude": 33.45472, "longitude": 126.71917 },
+			"address": "제주특별자치도 제주시 조천읍 선교로 569-36",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500034",
+				"naverMap": "https://map.naver.com/p/entry/place/20378654?lng=126.714934&lat=33.4573626&placePath=%2Fhome&entry=plt&searchType=place",
+				"kakaoMap": "https://place.map.kakao.com/18489468"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202410/21/3136dc6e-7b5a-41b2-97a5-1056e51f6528.jpg",
+			"description": "마치 예리한 조각 칼로 깎아낸 듯한 4~6각형 형태의 기둥이다. 두꺼운 용암이 급격히 식으면서 발생하는 수축 작용에 결과로 형성되었다.",
+			"keywords": ["제주여행", "제주바다", "유네스코", "제주자연", "제주도볼거리"],
+			"hints": [
+				"차량으로 5분 거리에 중문관광단지가 있다.",
+				"현무암질 용암류에 나타나는 수직 절리를 말한다."
+			],
+			"EMD_CD": "50130112",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "주상절리대",
+			"coordinate": {
+				"latitude": 33.24167,
+				"longitude": 126.42083
+			},
+			"address": "제주특별자치도 서귀포시 이어도로 36-30",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000020476",
+				"naverMap": "https://map.naver.com/p/search/%EB%8C%80%ED%8F%AC%EC%A3%BC%EC%83%81%EC%A0%88%EB%A6%AC/place/12226192?c=15.00,0,0,0,dh&placePath=%3Fentry%253Dbmp",
+				"kakaoMap": "https://place.map.kakao.com/10793668"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/201907/31/3da0d2f9-f92e-4319-b4b5-bbe33485b30d.jpg",
+			"description": "3대 명물로 불리는 광장, 방파제, 공연장이 가장 큰 특징이다. 공연장을 중심으로 길게 조성된 광장과 산책로가 존재한다.",
+			"keywords": ["밤", "일몰", "해변", "휴식/힐링"],
+			"hints": [
+				"밤바다를 보며 산책을 하거나 종종 행사가 진행된다.",
+				"여름이면 버스킹 등의 작은 공연이 열리는 모습을 볼 수 있다."
+			],
+			"EMD_CD": 50110122,
+			"COL_ADM_SE": 50110
+		},
+		"result": {
+			"placeName": "탑동",
+			"coordinate": {
+				"latitude": 33.514,
+				"longitude": 126.526
+			},
+			"address": "제주특별자치도 제주시 중앙로 2",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500649",
+				"naverMap": "https://map.naver.com/p/search/%ED%83%91%EB%8F%99%EA%B4%91%EC%9E%A5/place/13481076?c=15.00,0,0,0,dh&placePath=%3Fentry%253Dbmp",
+				"kakaoMap": "https://place.map.kakao.com/10812111"
+			}
+		}
+	}
+]
