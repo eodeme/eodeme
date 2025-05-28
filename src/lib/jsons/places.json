@@ -25,7 +25,7 @@
 	{
 		"start": {
 			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202410/21/3136dc6e-7b5a-41b2-97a5-1056e51f6528.jpg",
-			"description": "마치 예리한 조각 칼로 깎아낸 듯한 4~6각형 형태의 기둥이다. 두꺼운 용암이 급격히 식으면서 발생하는 수축 작용에 결과로 형성되었다.",
+			"description": "마치 예리한 조각 칼로 깎아낸 듯한 4~6각형 형태의 기둥이다. 육모꼴의 돌 기둥이 병풍처럼 둘러 쳐져 있다다.",
 			"keywords": ["제주여행", "제주바다", "유네스코", "제주자연", "제주도볼거리"],
 			"hints": [
 				"차량으로 5분 거리에 중문관광단지가 있다.",
@@ -43,19 +43,71 @@
 			"address": "제주특별자치도 서귀포시 이어도로 36-30",
 			"outlink": {
 				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000020476",
-				"naverMap": "https://map.naver.com/p/search/%EB%8C%80%ED%8F%AC%EC%A3%BC%EC%83%81%EC%A0%88%EB%A6%AC/place/12226192?c=15.00,0,0,0,dh&placePath=%3Fentry%253Dbmp",
+				"naverMap": "https://map.naver.com/p/entry/place/12226192?c=15.00,0,0,0,dh",
 				"kakaoMap": "https://place.map.kakao.com/10793668"
 			}
 		}
 	},
 	{
 		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202409/24/d58bae0f-095a-4998-8ca4-d09e0aa0ac71.jpg",
+			"description": "화가의 기념품이나 각종 수공예품, 편집샵들이 있는 거리이다. 서귀포에 머물며 명작을 남긴 예술가들의 산책 길도 조성되어 있다.",
+			"keywords": ["서귀포올레시장", "차없는거리", "예술", "문화", "산책"],
+			"hints": [
+				"서귀포 최소의 극장, 서귀포 관광극장이 있다.",
+				"천재 화가를 기리기 위해 피난 당시 거주했던 초가를 중심으로 조성된 거리이다."
+			],
+			"EMD_CD": "5013101",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "이중섭거리",
+			"coordinate": {
+				"latitude": 33.24852,
+				"longitude": 126.56514
+			},
+			"address": "제주특별자치도 서귀포시 이중섭로 29",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000020199",
+				"naverMap": "https://map.naver.com/p/entry/place/17046195?c=15.00,0,0,0,dh",
+				"kakaoMap": "https://place.map.kakao.com/8523750"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202408/26/be4f97a9-9acc-4585-b143-ab0ee793815f.jpg",
+			"description": "쭉쭉 뻗어 있는 삼나무가 한눈에도 시원하고, 청정한 공기와 숲이 주는 힐링감이 좋아 관광객들이 많이 찾는다.",
+			"keywords": ["제주여행", "숲속의집", "휴양림", "힐링", "숲길", "가족여행"],
+			"hints": [
+				"두 개의 오름을 끼고 있으며 오름 옆구리에 둥근 화구가 남아 있는 특이한 유형을 가지고 있다.",
+				"근처에 약효가 좋은 물이 난다고 하여 유래된 명칭이 특징이다."
+			],
+			"EMD_CD": "50110122",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "제주절물자연휴양림",
+			"coordinate": {
+				"latitude": 33.4528,
+				"longitude": 126.6178
+			},
+			"address": "제주특별자치도 제주시 명림로 584",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500570",
+				"naverMap": "https://map.naver.com/p/entry/place/13165795?c=15.00,0,0,0,dh",
+				"kakaoMap": "https://place.map.kakao.com/8067359"
+			}
+		}
+	},
+	{
+		"start": {
 			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/201907/31/3da0d2f9-f92e-4319-b4b5-bbe33485b30d.jpg",
-			"description": "3대 명물로 불리는 광장, 방파제, 공연장이 가장 큰 특징이다. 공연장을 중심으로 길게 조성된 광장과 산책로가 존재한다.",
+			"description": "약 25억원의 예산을 들여 지상 3층으로 건축된 해변공연장은 제주방사탑의 모양을 하고 있다. 여름이면 시원한 바닷소리와 함께 산책을 즐길 수 있다.",
 			"keywords": ["밤", "일몰", "해변", "휴식/힐링"],
 			"hints": [
-				"밤바다를 보며 산책을 하거나 종종 행사가 진행된다.",
-				"여름이면 버스킹 등의 작은 공연이 열리는 모습을 볼 수 있다."
+				"밤바다를 보며 산책을 하거나 종종 버스킹 같은 행사가 진행된다.",
+				"3대 명물로 불리는 광장, 방파제, 공연장이 가장 큰 특징이다."
 			],
 			"EMD_CD": 50110122,
 			"COL_ADM_SE": 50110
@@ -69,7 +121,7 @@
 			"address": "제주특별자치도 제주시 중앙로 2",
 			"outlink": {
 				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500649",
-				"naverMap": "https://map.naver.com/p/search/%ED%83%91%EB%8F%99%EA%B4%91%EC%9E%A5/place/13481076?c=15.00,0,0,0,dh&placePath=%3Fentry%253Dbmp",
+				"naverMap": "https://map.naver.com/p/entry/place/13481076?c=15.00,0,0,0,dh",
 				"kakaoMap": "https://place.map.kakao.com/10812111"
 			}
 		}
