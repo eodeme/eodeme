@@ -4,6 +4,7 @@
 	import area from '$lib/stores/area.json';
 	import { drawPolygon, mapCoordsToLatLng } from '$lib/maps';
 	import { rows, checkIsAvailableArea } from '$lib/maps/areas';
+	import { selectedArea } from '$lib/stores/selectedArea';
 
 	let { map }: { map: kakao.maps.Map | null } = $props();
 
@@ -12,6 +13,10 @@
 		states: { value }
 	} = createToggleGroup({
 		type: 'single'
+	});
+
+	$effect(() => {
+		$selectedArea = $value as AreaName | undefined;
 	});
 
 	$effect(() => {
