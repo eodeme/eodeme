@@ -2,7 +2,7 @@
 	import { createToggleGroup, melt } from '@melt-ui/svelte';
 
 	import area from '$lib/stores/area.json';
-	import { drawPolygon } from '$lib/maps';
+	import { drawPolygon, mapCoordsToLatLng } from '$lib/maps';
 
 	let { map }: { map: kakao.maps.Map | null } = $props();
 
@@ -14,10 +14,10 @@
 	});
 
 	const rows = [
-		{ city: 'jeju', areas: ['제주시내', '애월', '한림', '조천', '구좌', '우도'] },
+		{ city: 'jeju', areas: ['제주시', '제주시내', '애월', '한림', '조천', '구좌', '우도'] },
 		{
 			city: 'seogwipo',
-			areas: ['서귀포시내', '성산', '대정', '안덕', '남원', '표선']
+			areas: ['서귀포시', '서귀포시내', '성산', '대정', '안덕', '남원', '표선']
 		}
 	] as const;
 
@@ -36,15 +36,22 @@
 		map.setCenter(new kakao.maps.LatLng(middlePoint.latitude, middlePoint.longitude));
 		map.setLevel(middlePoint.zoomLevel);
 
-		const coordinates = selectedArea.geometry.coordinates[0];
+		const { coordinates } = selectedArea.geometry;
 
-		const path = Array.isArray(coordinates[0][0])
-			? (coordinates as number[][][]).map((ring: number[][]) =>
-					ring.map((coord: number[]) => new kakao.maps.LatLng(coord[1], coord[0]))
-				)
-			: (coordinates as number[][]).map(
-					(coord: number[]) => new kakao.maps.LatLng(coord[1], coord[0])
-				);
+		if ($value === '제주시' || $value === '서귀포시') {
+			const paths = mapCoordsToLatLng(coordinates);
+
+			// @ts-expect-error
+			const polygons = paths.map((path: kakao.maps.LatLng[]) => drawPolygon({ map, path }));
+
+			return () => {
+				for (const polygon of polygons) {
+					polygon.setMap(null);
+				}
+			};
+		}
+
+		const path = mapCoordsToLatLng(coordinates[0]);
 
 		const polygon = drawPolygon({ map, path });
 

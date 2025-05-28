@@ -1,3 +1,11 @@
+export function mapCoordsToLatLng(
+	coords: number | unknown[]
+): kakao.maps.LatLng[] | kakao.maps.LatLng[][] {
+	return typeof coords[0] === 'number'
+		? new kakao.maps.LatLng(coords[1], coords[0])
+		: (coords as unknown[]).map(mapCoordsToLatLng);
+}
+
 interface displayPolygonProps {
 	map: kakao.maps.Map;
 	path: kakao.maps.LatLng[] | kakao.maps.LatLng[][];
