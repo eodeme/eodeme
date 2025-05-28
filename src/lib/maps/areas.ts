@@ -1,5 +1,5 @@
-import areaNameToCode from '$lib/stores/areaNameToCode.json';
-import places from '$lib/stores/places.json';
+import areaNameToCode from '$lib/jsons/areaNameToCode.json';
+import places from '$lib/jsons/places.json';
 
 export const rows = [
 	{ city: 'jeju', areas: ['제주시', '제주시내', '애월', '한림', '조천', '구좌', '우도'] },

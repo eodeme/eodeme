@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createToggleGroup, melt } from '@melt-ui/svelte';
 
-	import area from '$lib/stores/area.json';
+	import area from '$lib/jsons/area.json';
 	import { drawPolygon, mapCoordsToLatLng } from '$lib/maps';
 	import { rows, checkIsAvailableArea } from '$lib/maps/areas';
 	import { selectedArea } from '$lib/stores/selectedArea';
