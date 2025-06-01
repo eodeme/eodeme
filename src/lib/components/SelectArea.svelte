@@ -2,11 +2,8 @@
 	import { createToggleGroup, melt } from '@melt-ui/svelte';
 
 	import area from '$lib/jsons/area.json';
-	import { drawPolygon, mapCoordsToLatLng } from '$lib/maps';
-	import { rows, checkIsAvailableArea } from '$lib/maps/areas';
-	import { selectedArea } from '$lib/stores/selectedArea';
-
-	let { map }: { map: kakao.maps.Map | null } = $props();
+	import { drawPolygon, mapCoordsToLatLng, rows, checkIsAvailableArea } from '$lib/maps';
+	import { selectedArea, map } from '$lib/stores';
 
 	const {
 		elements: { root, item },
@@ -20,7 +17,7 @@
 	});
 
 	$effect(() => {
-		if (!map) return;
+		if (!$map) return;
 		if (!$value) return;
 
 		if (typeof $value !== 'string')
@@ -31,8 +28,8 @@
 		const selectedArea = area[$value as AreaName];
 		const { middlePoint } = selectedArea.properties.extends;
 
-		map.setCenter(new kakao.maps.LatLng(middlePoint.latitude, middlePoint.longitude));
-		map.setLevel(middlePoint.zoomLevel);
+		$map.setCenter(new kakao.maps.LatLng(middlePoint.latitude, middlePoint.longitude));
+		$map.setLevel(middlePoint.zoomLevel);
 
 		const { coordinates } = selectedArea.geometry;
 
@@ -40,7 +37,7 @@
 			const paths = mapCoordsToLatLng(coordinates);
 
 			// @ts-expect-error
-			const polygons = paths.map((path: kakao.maps.LatLng[]) => drawPolygon({ map, path }));
+			const polygons = paths.map((path: kakao.maps.LatLng[]) => drawPolygon({ map: $map, path }));
 
 			return () => {
 				for (const polygon of polygons) {
@@ -51,7 +48,7 @@
 
 		const path = mapCoordsToLatLng(coordinates[0]);
 
-		const polygon = drawPolygon({ map, path });
+		const polygon = drawPolygon({ map: $map, path });
 
 		return () => {
 			polygon.setMap(null);

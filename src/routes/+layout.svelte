@@ -1,15 +1,15 @@
 <script lang="ts">
 	import '../app.css';
 	import { initializeMap } from '$lib/maps';
+	import { map } from '$lib/stores';
 
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import SelectArea from '$lib/components/SelectArea.svelte';
 
 	let mapContainer: HTMLMapElement;
-	let map = $state<kakao.maps.Map | null>(null);
 
 	onMount(() => {
-		map = initializeMap(mapContainer);
+		$map = initializeMap(mapContainer);
 	});
 
 	let { children } = $props();
@@ -20,5 +20,5 @@
 </svelte:head>
 
 <map bind:this={mapContainer} class="absolute top-0 block h-[100vh] w-[100vw]"></map>
-<SelectArea {map} />
+<SelectArea />
 {@render children()}

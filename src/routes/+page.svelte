@@ -1,20 +1,88 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import { timer } from '../states/timer.svelte';
-	import { randomChooseAvailablePlace } from '$lib/maps/areas';
-	import { selectedArea } from '$lib/stores/selectedArea';
+	import { randomChooseAvailablePlace, createMarker, computeDistanceBetween } from '$lib/maps';
+	import { selectedArea, map, markers } from '$lib/stores';
+	import { fly } from 'svelte/transition';
 
 	let leftTime = $derived(timer.maxTime - timer.currentTime);
 	let timeIsOut = $derived(leftTime <= 0);
 
 	let selectedPlace = $derived($selectedArea && randomChooseAvailablePlace($selectedArea));
 
-	let hintLastIndex = $state(0);
+	let isFinished = $state<null | boolean>(null);
 	let start = $derived(selectedPlace?.start);
-	let currentHit = $derived(start?.hints.slice(0, hintLastIndex + 1) ?? []);
+
+	onMount(() => {
+		return () => {
+			for (const marker of $markers) {
+				marker.setMap(null);
+			}
+		};
+	});
+
+	$effect(() => {
+		if (!selectedPlace) return () => {};
+		if (!$map) return () => {};
+		if (isFinished === null) return () => {};
+
+		if (import.meta.env.DEV) {
+			const marker = createMarker($map, {
+				finished: false,
+				coordinate: selectedPlace.result.coordinate,
+				place: selectedPlace
+			});
+
+			return () => {
+				marker.setMap(null);
+			};
+		}
+	});
+
+	let hintLastIndex = $state(0);
+	let currentHit = $derived(start?.hints.slice(0, hintLastIndex) ?? []);
+
+	function addHintIndex() {
+		if (start && hintLastIndex < start.hints.length) {
+			hintLastIndex += 1;
+		}
+	}
+
+	$effect(() => {
+		if (!selectedPlace) return () => {};
+		if (!$map) return () => {};
+		if (isFinished) return () => {};
+
+		const { coordinate } = selectedPlace?.result;
+
+		kakao.maps.event.addListener($map, 'click', (event: kakao.maps.event.MouseEvent) => {
+			const clickedCoordinate = event.latLng;
+			const distance = computeDistanceBetween(coordinate, {
+				latitude: clickedCoordinate.getLat(),
+				longitude: clickedCoordinate.getLng()
+			});
+
+			if (distance <= 1000) {
+				isFinished = true;
+				$markers.push(
+					createMarker($map, {
+						finished: isFinished,
+						coordinate: selectedPlace.result.coordinate,
+						place: selectedPlace
+					})
+				);
+				$selectedArea = undefined;
+				timer.currentTime = 0;
+				// 결과 모달 띄우기
+			} else {
+				addHintIndex();
+			}
+		});
+	});
 
 	$effect(() => {
 		if (!start) return () => {};
+		if (isFinished !== null) return () => {};
 
 		const interval = setInterval(() => {
 			if (timer.currentTime < timer.maxTime) {
@@ -28,54 +96,74 @@
 	});
 
 	$effect(() => {
+		if (!selectedPlace) return () => {};
+		if (!$map) return () => {};
 		if (leftTime <= 0) {
 			setTimeout(() => {
 				alert('시간이 초과되었습니다.');
+				isFinished = false;
+				$markers.push(
+					createMarker($map, {
+						finished: isFinished,
+						coordinate: selectedPlace?.result.coordinate,
+						place: selectedPlace
+					})
+				);
+				$selectedArea = undefined;
 				timer.currentTime = 0;
+				// TODO: 결과 모달 띄우기
 			});
 		}
 	});
 </script>
 
 {#if start}
-	{#each currentHit as hint}
-		<h2 class="z-2">
-			{hint}
-		</h2>
-	{/each}
-
-	<section class="absolute bottom-0 left-0 z-1 w-full">
-		<article class="flex w-full justify-between">
-			<div class="flex">
-				<img class="w-[466px] rounded-tr-[8px]" src={start.picture} alt="hintImage" />
-				<div
-					class="flex max-w-[406px] flex-col gap-[8px] self-end text-[16px] font-[500] text-white"
-				>
-					<p class="bg-black p-[16px]">
-						키워드: {start.keywords.join(', ')}
-					</p>
-					<p class="bg-black p-[16px]">
-						{start.description}
-					</p>
-				</div>
-			</div>
-			<label
-				data-time-is-out={timeIsOut}
-				for="progress"
-				class="mr-[16px] mb-[8px] self-end text-[24px] font-[500] text-shadow-[0_8px_12px_rgba(0,0,0,0.15),0_4px_4px_rgba(0,0,0,0.30)]"
+	<div
+		class="absolute right-[15px] bottom-[85px] mr-[16px] mb-[18px] flex flex-col-reverse gap-[8px]"
+	>
+		{#each currentHit as hint}
+			<h2
+				class="shadow-[0_4px_8px_rgba(0, 0, 0, 0.3)] z-2 max-w-[360px] bg-black p-[16px] font-[14px] text-white"
+				transition:fly={{
+					y: 30,
+					duration: 200
+				}}
 			>
-				{leftTime > 0 ? '⏳' : '⌛'}
-				{leftTime / timer.interval}초 남음
-			</label>
-		</article>
-		<progress
-			id="progress"
-			class="block w-full"
-			value={timer.currentTime}
-			max={timer.maxTime}
-			data-time-is-out={timeIsOut}
-		></progress>
-	</section>
+				{hint}
+			</h2>
+		{/each}
+	</div>
+
+	<img
+		class="absolute bottom-[16px] left-[0] z-1 w-[466px] rounded-tr-[8px]"
+		src={start.picture}
+		alt="hintImage"
+	/>
+	<div
+		class="absolute bottom-[16px] left-[466px] z-1 flex max-w-[406px] flex-col gap-[8px] text-[16px] font-[500] text-white"
+	>
+		<p class="bg-black p-[16px]">
+			키워드: {start.keywords.join(', ')}
+		</p>
+		<p class="bg-black p-[16px]">
+			{start.description}
+		</p>
+	</div>
+	<label
+		data-time-is-out={timeIsOut}
+		for="progress"
+		class="absolute right-[14px] bottom-[18px] z-1 mr-[16px] mb-[8px] self-end text-[24px] font-[500] text-shadow-[0_8px_12px_rgba(0,0,0,0.15),0_4px_4px_rgba(0,0,0,0.30)]"
+	>
+		{leftTime > 0 ? '⏳' : '⌛'}
+		{leftTime / timer.interval}초 남음
+	</label>
+	<progress
+		id="progress"
+		class="absolute bottom-[0] z-1 block w-full"
+		value={timer.currentTime}
+		max={timer.maxTime}
+		data-time-is-out={timeIsOut}
+	></progress>
 {/if}
 
 <style>
