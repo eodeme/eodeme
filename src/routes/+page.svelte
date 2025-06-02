@@ -71,8 +71,6 @@
 						place: selectedPlace
 					})
 				);
-				$selectedArea = undefined;
-				timer.currentTime = 0;
 				// 결과 모달 띄우기
 			} else {
 				addHintIndex();
@@ -109,8 +107,6 @@
 						place: selectedPlace
 					})
 				);
-				$selectedArea = undefined;
-				timer.currentTime = 0;
 				// TODO: 결과 모달 띄우기
 			});
 		}
