@@ -9,11 +9,8 @@
 		elements: { root, item },
 		states: { value }
 	} = createToggleGroup({
-		type: 'single'
-	});
-
-	$effect(() => {
-		$selectedArea = $value as AreaName | undefined;
+		type: 'single',
+		value: selectedArea
 	});
 
 	$effect(() => {
@@ -25,13 +22,13 @@
 
 		if ($value in area === false) throw new Error(`Area "${$value}" is not defined in area store`);
 
-		const selectedArea = area[$value as AreaName];
-		const { middlePoint } = selectedArea.properties.extends;
+		const { properties, geometry } = area[$value as AreaName];
+		const { middlePoint } = properties.extends;
 
 		$map.setCenter(new kakao.maps.LatLng(middlePoint.latitude, middlePoint.longitude));
 		$map.setLevel(middlePoint.zoomLevel);
 
-		const { coordinates } = selectedArea.geometry;
+		const { coordinates } = geometry;
 
 		if ($value === '제주시' || $value === '서귀포시') {
 			const paths = mapCoordsToLatLng(coordinates);
