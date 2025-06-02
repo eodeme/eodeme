@@ -55,7 +55,7 @@
 
 		const { coordinate } = selectedPlace?.result;
 
-		kakao.maps.event.addListener($map, 'click', (event: kakao.maps.event.MouseEvent) => {
+		const clickMapHandler = (event: kakao.maps.event.MouseEvent) => {
 			const clickedCoordinate = event.latLng;
 			const distance = computeDistanceBetween(coordinate, {
 				latitude: clickedCoordinate.getLat(),
@@ -75,7 +75,13 @@
 			} else {
 				addHintIndex();
 			}
-		});
+		};
+
+		kakao.maps.event.addListener($map, 'click', clickMapHandler);
+
+		return () => {
+			kakao.maps.event.removeListener($map, 'click', clickMapHandler);
+		};
 	});
 
 	$effect(() => {
