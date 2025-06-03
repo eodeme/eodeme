@@ -30,25 +30,14 @@
 
 		const { coordinates } = geometry;
 
-		if ($value === '제주시' || $value === '서귀포시') {
-			const paths = mapCoordsToLatLng(coordinates);
+		const paths = mapCoordsToLatLng(coordinates);
 
-			// @ts-expect-error
-			const polygons = paths.map((path: kakao.maps.LatLng[]) => drawPolygon({ map: $map, path }));
-
-			return () => {
-				for (const polygon of polygons) {
-					polygon.setMap(null);
-				}
-			};
-		}
-
-		const path = mapCoordsToLatLng(coordinates[0]);
-
-		const polygon = drawPolygon({ map: $map, path });
+		const polygons = paths.map((path) => drawPolygon({ map: $map, path }));
 
 		return () => {
-			polygon.setMap(null);
+			for (const polygon of polygons) {
+				polygon.setMap(null);
+			}
 		};
 	});
 </script>
