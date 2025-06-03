@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { getContext, onMount } from 'svelte';
 	import { timer } from '../states/timer.svelte';
 	import { randomChooseAvailablePlace, createMarker, computeDistanceBetween } from '$lib/maps';
 	import { selectedArea, map, markers } from '$lib/stores';
