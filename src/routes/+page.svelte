@@ -1,16 +1,22 @@
 <script lang="ts">
-	import { timer } from '../states/timer.svelte';
-	import { randomChooseAvailablePlace, createMarker, computeDistanceBetween } from '$lib/maps';
-	import { selectedArea, map, markers } from '$lib/stores';
+	import {
+		randomChooseAvailablePlace,
+		createMarker,
+		computeDistanceBetween,
+		getOffsetCenterRight
+	} from '$lib/maps';
+	import { selectedArea, map, markers, openPlaceDetails, timer } from '$lib/stores';
 	import { fly } from 'svelte/transition';
+	import PlaceDetails from '$lib/components/PlaceDetails.svelte';
 
-	let leftTime = $derived(timer.maxTime - timer.currentTime);
+	let leftTime = $derived($timer.maxTime - $timer.currentTime);
 	let timeIsOut = $derived(leftTime <= 0);
 
-	let selectedPlace = $derived($selectedArea && randomChooseAvailablePlace($selectedArea));
+	let randomSelectedPlace = $derived($selectedArea && randomChooseAvailablePlace($selectedArea));
+	let selectedPlaceDetails = $state<SelectedPlaceDetails>(null);
 
 	let isFinished = $state<null | boolean>(null);
-	let start = $derived(selectedPlace?.start);
+	let start = $derived(randomSelectedPlace?.start);
 
 	let hintLastIndex = $state(0);
 	let currentHit = $derived(start?.hints.slice(0, hintLastIndex) ?? []);
@@ -21,12 +27,22 @@
 		}
 	}
 
+	type GeneratePlaceDetailsProps = { place: Place; keywords: string[] } & (
+		| {
+				finished: true;
+				leftTime: number;
+		  }
+		| {
+				finished: false;
+		  }
+	);
+
 	$effect(() => {
-		if (!selectedPlace) return () => {};
+		if (!randomSelectedPlace) return () => {};
 		if (!$map) return () => {};
 		if (isFinished) return () => {};
 
-		const { coordinate } = selectedPlace?.result;
+		const { coordinate } = randomSelectedPlace?.result;
 
 		const clickMapHandler = (event: kakao.maps.event.MouseEvent) => {
 			const clickedCoordinate = event.latLng;
@@ -37,14 +53,18 @@
 
 			if (distance <= 1000) {
 				isFinished = true;
-				$markers.push(
-					createMarker($map, {
-						finished: isFinished,
-						coordinate: selectedPlace.result.coordinate,
-						place: selectedPlace
-					})
-				);
-				// 결과 모달 띄우기
+				const { marker, overlay } = createMarker($map, {
+					finished: isFinished,
+					leftTime,
+					coordinate: randomSelectedPlace.result.coordinate,
+					place: randomSelectedPlace
+				});
+
+				$openPlaceDetails = true;
+
+				$markers.push(marker);
+
+				$openPlaceDetails = true;
 			} else {
 				addHintIndex();
 			}
@@ -62,10 +82,10 @@
 		if (isFinished !== null) return () => {};
 
 		const interval = setInterval(() => {
-			if (timer.currentTime < timer.maxTime) {
-				timer.currentTime += timer.interval;
+			if ($timer.currentTime < $timer.maxTime) {
+				$timer.currentTime += $timer.interval;
 			}
-		}, timer.interval);
+		}, $timer.interval);
 
 		return () => {
 			clearInterval(interval);
@@ -73,21 +93,63 @@
 	});
 
 	$effect(() => {
-		if (!selectedPlace) return () => {};
+		if (!randomSelectedPlace) return () => {};
 		if (!$map) return () => {};
 		if (leftTime <= 0) {
 			setTimeout(() => {
-				alert('시간이 초과되었습니다.');
 				isFinished = false;
-				$markers.push(
-					createMarker($map, {
-						finished: isFinished,
-						coordinate: selectedPlace?.result.coordinate,
-						place: selectedPlace
-					})
-				);
-				// TODO: 결과 모달 띄우기
+
+				const { marker } = createMarker($map, {
+					finished: isFinished,
+					coordinate: randomSelectedPlace.result.coordinate,
+					place: randomSelectedPlace
+				});
+
+				$markers.push(marker);
+
+				$openPlaceDetails = true;
 			});
+		}
+	});
+
+	openPlaceDetails.subscribe((open) => {
+		if (!open) {
+			selectedPlaceDetails = null;
+			return;
+		}
+
+		if (!randomSelectedPlace) throw new Error('No place selected');
+		if (!$map) throw new Error('Map is not initialized');
+
+		const placeDetails = generatePlaceDetails({
+			place: randomSelectedPlace,
+			keywords: randomSelectedPlace.start.keywords,
+			...(isFinished ? { finished: true, leftTime } : { finished: false })
+		});
+		selectedPlaceDetails = placeDetails;
+
+		navigateToPlace($map, randomSelectedPlace);
+
+		function generatePlaceDetails(props: GeneratePlaceDetailsProps): SelectedPlaceDetails {
+			return {
+				...props.place.result,
+				...(props.finished
+					? { finished: props.finished, leftTime: props.leftTime }
+					: { finished: false }),
+				picture: props.place.start.picture,
+				keywords: props.place.start.keywords
+			};
+		}
+
+		function navigateToPlace(map: kakao.maps.Map, place: Place) {
+			const center = new kakao.maps.LatLng(
+				place.result.coordinate.latitude,
+				place.result.coordinate.longitude
+			);
+			map.setLevel(3, { anchor: center });
+
+			const offsetCenter = getOffsetCenterRight(center, map.getBounds());
+			map.setCenter(offsetCenter);
 		}
 	});
 </script>
@@ -130,16 +192,18 @@
 		class="absolute right-[14px] bottom-[18px] z-1 mr-[16px] mb-[8px] self-end text-[24px] font-[500] text-shadow-[0_8px_12px_rgba(0,0,0,0.15),0_4px_4px_rgba(0,0,0,0.30)]"
 	>
 		{leftTime > 0 ? '⏳' : '⌛'}
-		{leftTime / timer.interval}초 남음
+		{leftTime / $timer.interval}초 남음
 	</label>
 	<progress
 		id="progress"
 		class="absolute bottom-[0] z-1 block w-full"
-		value={timer.currentTime}
-		max={timer.maxTime}
+		value={$timer.currentTime}
+		max={$timer.maxTime}
 		data-time-is-out={timeIsOut}
 	></progress>
 {/if}
+
+<PlaceDetails place={selectedPlaceDetails} />
 
 <style>
 	#progress {

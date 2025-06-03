@@ -6,11 +6,18 @@ const markerIconPath = {
 	whiteFlag: 'images/🏳️.png'
 };
 
-interface MarkerOptions {
-	finished: boolean;
-	place: Place;
-	coordinate: Coordinate;
-}
+type MarkerOptions =
+	| {
+			finished: true;
+			leftTime: number;
+			place: Place;
+			coordinate: Coordinate;
+	  }
+	| {
+			finished: false;
+			place: Place;
+			coordinate: Coordinate;
+	  };
 
 export function createMarker(map: kakao.maps.Map, options: MarkerOptions) {
 	const markerImage = new kakao.maps.MarkerImage(
@@ -29,16 +36,20 @@ export function createMarker(map: kakao.maps.Map, options: MarkerOptions) {
 	});
 	marker.setMap(map);
 
-	return new kakao.maps.CustomOverlay({
+	const overlay = new kakao.maps.CustomOverlay({
 		map,
-		content: `<article class="w-[128px] h-[139.6px] flex flex-col items-center bg-gray-200 rounded shadow-md">
+		content: `<article class="w-[128px] bg-gray-200 rounded shadow-md">
 			<img src="${options.place.start.picture}" alt="overlay image" class="w-full rounded-t-lg" />
-			<div class="font-medium flex flex-col items-center p-[5px]">
-				<div class="text-[10px] p-[2px]">${options.place.result.placeName}</div>
-				<button class="text-[10px] p-[2px] bg-white w-[110px]">자세히보기</button>
+			<div class="font-medium p-[5px]">
+				<div class="text-[10px] text-center p-[2px]">${options.place.result.placeName}</div>
 			</div>
 		</article>`,
 		position,
 		yAnchor
 	});
+
+	return {
+		marker,
+		overlay
+	};
 }

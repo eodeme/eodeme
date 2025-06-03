@@ -4,8 +4,8 @@ interface Place {
 		description: string;
 		keywords: string[];
 		hints: string[];
-    EMD_CD: string; // 행정동 코드
-	  COL_ADM_SE: string; // 도시 코드
+		EMD_CD: string; // 행정동 코드
+		COL_ADM_SE: string; // 도시 코드
 	};
 	result: {
 		placeName: string;
@@ -26,3 +26,19 @@ interface Coordinate {
 	latitude: number;
 	longitude: number;
 }
+
+type SelectedPlaceDetails =
+	| ((Place['result'] & {
+			picture: Place['start']['picture'];
+			keywords: Place['start']['keywords'];
+	  }) &
+			(
+				| {
+						finished: true;
+						leftTime: number;
+				  }
+				| (Place['result'] & {
+						finished: false;
+				  })
+			))
+	| null;
