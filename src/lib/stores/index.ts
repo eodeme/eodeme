@@ -2,4 +2,19 @@ import { writable } from 'svelte/store';
 
 export const selectedArea = writable<AreaName | undefined>(undefined);
 export const map = writable<kakao.maps.Map | undefined>(undefined);
-export const markers = writable<kakao.maps.CustomOverlay[]>([]);
+export const markers = writable<kakao.maps.Marker[]>([]);
+export const openPlaceDetails = writable(false);
+
+const maxTime = 10 * 1000;
+
+type TimerState = {
+	readonly maxTime: number;
+	readonly interval: number;
+	currentTime: number;
+};
+
+export const timer = writable<TimerState>({
+	maxTime,
+	interval: 1000,
+	currentTime: 0
+});
