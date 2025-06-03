@@ -13,14 +13,6 @@
 	let isFinished = $state<null | boolean>(null);
 	let start = $derived(selectedPlace?.start);
 
-	onMount(() => {
-		return () => {
-			for (const marker of $markers) {
-				marker.setMap(null);
-			}
-		};
-	});
-
 	let hintLastIndex = $state(0);
 	let currentHit = $derived(start?.hints.slice(0, hintLastIndex) ?? []);
 
