@@ -21,24 +21,6 @@
 		};
 	});
 
-	$effect(() => {
-		if (!selectedPlace) return () => {};
-		if (!$map) return () => {};
-		if (isFinished === null) return () => {};
-
-		if (import.meta.env.DEV) {
-			const marker = createMarker($map, {
-				finished: false,
-				coordinate: selectedPlace.result.coordinate,
-				place: selectedPlace
-			});
-
-			return () => {
-				marker.setMap(null);
-			};
-		}
-	});
-
 	let hintLastIndex = $state(0);
 	let currentHit = $derived(start?.hints.slice(0, hintLastIndex) ?? []);
 
