@@ -28,13 +28,13 @@ export function mapCoordsToLatLng<T>(coords: T): MapCoordsToLatLng<T> {
 	// @ts-expect-error: // TypeScript doesn't infer the type correctly here
 	return (coords as Array<unknown>).map(mapCoordsToLatLng);
 }
-interface displayPolygonProps {
+interface displayPolylineProps {
 	map: kakao.maps.Map;
 	path: kakao.maps.LatLng[] | kakao.maps.LatLng[][];
 }
 
-export function drawPolygon({ map, path }: displayPolygonProps) {
-	return new kakao.maps.Polygon({
+export function drawPolyline({ map, path }: displayPolylineProps) {
+	return new kakao.maps.Polyline({
 		map,
 		path,
 		strokeWeight: 2,

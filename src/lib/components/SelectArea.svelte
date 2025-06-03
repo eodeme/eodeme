@@ -2,7 +2,7 @@
 	import { createToggleGroup, melt } from '@melt-ui/svelte';
 
 	import area from '$lib/jsons/area.json';
-	import { drawPolygon, mapCoordsToLatLng, rows, checkIsAvailableArea } from '$lib/maps';
+	import { drawPolyline, mapCoordsToLatLng, rows, checkIsAvailableArea } from '$lib/maps';
 	import { selectedArea, map } from '$lib/stores';
 
 	const {
@@ -32,7 +32,7 @@
 
 		const paths = mapCoordsToLatLng(coordinates);
 
-		const polygons = paths.map((path) => drawPolygon({ map: $map, path }));
+		const polygons = paths.map((path) => drawPolyline({ map: $map, path }));
 
 		return () => {
 			for (const polygon of polygons) {

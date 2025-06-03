@@ -1,5 +1,5 @@
 export * from './initialize';
-export * from './polygon';
+export * from './polyline';
 export * from './marker';
 export * from './areas';
 export * from './distance';
