@@ -28,17 +28,9 @@ interface Coordinate {
 }
 
 type SelectedPlaceDetails =
-	| ((Place['result'] & {
+	| (Place['result'] & {
 			picture: Place['start']['picture'];
 			keywords: Place['start']['keywords'];
-	  }) &
-			(
-				| {
-						finished: true;
-						leftTime: number;
-				  }
-				| (Place['result'] & {
-						finished: false;
-				  })
-			))
+			leftTime: number;
+	  })
 	| null;

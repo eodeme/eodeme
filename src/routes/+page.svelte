@@ -20,7 +20,7 @@
 				$playedPlaces.map(({ EMD_CD }) => EMD_CD)
 			)
 	);
-	let selectedByOverlayPlace = $state<Place | null>(null);
+	let selectedByOverlayPlace = $state<(Place & { leftTime: number }) | null>(null);
 	let selectedPlaceDetails = $state<SelectedPlaceDetails>(null);
 
 	let isFinished = $state<null | boolean>(null);
@@ -35,15 +35,9 @@
 		}
 	}
 
-	type GeneratePlaceDetailsProps = { place: Place; keywords: string[] } & (
-		| {
-				finished: true;
-				leftTime: number;
-		  }
-		| {
-				finished: false;
-		  }
-	);
+	type GeneratePlaceDetailsProps = { place: Place; keywords: string[] } & {
+		leftTime: number;
+	};
 
 	$effect(() => {
 		if (!randomSelectedPlace) return () => {};
@@ -68,7 +62,10 @@
 					finished: isFinished,
 					leftTime,
 					coordinate: randomSelectedPlace.result.coordinate,
-					onClickOverlay: openPlaceDetailsHandler(randomSelectedPlace),
+					onClickOverlay: openPlaceDetailsHandler({
+						place: randomSelectedPlace,
+						leftTime
+					}),
 					place: randomSelectedPlace
 				});
 
@@ -113,7 +110,10 @@
 					finished: isFinished,
 					coordinate: randomSelectedPlace.result.coordinate,
 					place: randomSelectedPlace,
-					onClickOverlay: openPlaceDetailsHandler(randomSelectedPlace)
+					onClickOverlay: openPlaceDetailsHandler({
+						place: randomSelectedPlace,
+						leftTime
+					})
 				});
 				$playedPlaces.push({ EMD_CD: randomSelectedPlace.start.EMD_CD });
 
@@ -122,9 +122,10 @@
 		}
 	});
 
-	function openPlaceDetailsHandler(place: Place) {
+	function openPlaceDetailsHandler({ place, leftTime }: { place: Place; leftTime: number }) {
 		return () => {
-			selectedByOverlayPlace = place;
+			selectedByOverlayPlace = { ...place, leftTime };
+
 			$openPlaceDetails = true;
 		};
 	}
@@ -151,8 +152,9 @@
 			$timer.resetTime();
 		}
 
+		const isOpenByOverlay = $selectedArea === undefined;
+
 		const place = (() => {
-			const isOpenByOverlay = $selectedArea === undefined;
 			if (isOpenByOverlay) {
 				if (!selectedByOverlayPlace)
 					throw new Error('selectedByOverlayPlace is null when opening PlaceDetails');
@@ -163,13 +165,13 @@
 			if (!randomSelectedPlace)
 				throw new Error('randomSelectedPlace is null when opening PlaceDetails');
 
-			return randomSelectedPlace;
+			return { ...randomSelectedPlace, leftTime };
 		})();
 
 		const placeDetails = generatePlaceDetails({
 			place,
 			keywords: place.start.keywords,
-			...(isFinished ? { finished: true, leftTime } : { finished: false })
+			leftTime: place.leftTime
 		});
 		selectedPlaceDetails = placeDetails;
 
@@ -178,9 +180,7 @@
 		function generatePlaceDetails(props: GeneratePlaceDetailsProps): SelectedPlaceDetails {
 			return {
 				...props.place.result,
-				...(props.finished
-					? { finished: props.finished, leftTime: props.leftTime }
-					: { finished: false }),
+				leftTime: props.leftTime,
 				picture: props.place.start.picture,
 				keywords: props.place.start.keywords
 			};

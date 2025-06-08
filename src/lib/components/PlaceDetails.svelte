@@ -40,7 +40,7 @@
 					<h1 use:melt={$title} class="m-0 text-[24px] font-[700] text-black">
 						{place.placeName}
 					</h1>
-					{#if place.finished}
+					{#if place.leftTime > 0}
 						<p use:melt={$description}>
 							⏳ {$timer.maxTime / $timer.interval - place.leftTime / $timer.interval}초만에 맞춤
 						</p>
