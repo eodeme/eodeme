@@ -11,11 +11,13 @@ type MarkerOptions =
 			finished: true;
 			leftTime: number;
 			place: Place;
+			onClickOverlay: () => void;
 			coordinate: Coordinate;
 	  }
 	| {
 			finished: false;
 			place: Place;
+			onClickOverlay: () => void;
 			coordinate: Coordinate;
 	  };
 
@@ -36,14 +38,19 @@ export function createMarker(map: kakao.maps.Map, options: MarkerOptions) {
 	});
 	marker.setMap(map);
 
+	const content = document.createElement('article');
+	content.className = 'w-[128px] bg-gray-200 rounded shadow-md cursor-pointer';
+	content.innerHTML = `
+  <img src="${options.place.start.picture}" alt="marker image" class="w-full rounded-t-lg" />
+  <div class="font-medium p-[5px]">
+    <div class="text-[10px] text-center p-[2px]">${options.place.result.placeName}</div>
+  </div>
+  `;
+	content.addEventListener('click', options.onClickOverlay);
+
 	const overlay = new kakao.maps.CustomOverlay({
 		map,
-		content: `<article class="w-[128px] bg-gray-200 rounded shadow-md">
-			<img src="${options.place.start.picture}" alt="overlay image" class="w-full rounded-t-lg" />
-			<div class="font-medium p-[5px]">
-				<div class="text-[10px] text-center p-[2px]">${options.place.result.placeName}</div>
-			</div>
-		</article>`,
+		content,
 		position,
 		yAnchor
 	});

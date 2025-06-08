@@ -14,6 +14,7 @@
 	let timeIsOut = $derived(leftTime <= 0);
 
 	let randomSelectedPlace = $derived($selectedArea && randomChooseAvailablePlace($selectedArea));
+	let selectedByOverlayPlace = $state<Place | null>(null);
 	let selectedPlaceDetails = $state<SelectedPlaceDetails>(null);
 
 	let isFinished = $state<null | boolean>(null);
@@ -46,6 +47,9 @@
 		const { coordinate } = randomSelectedPlace?.result;
 
 		const clickMapHandler = (event: kakao.maps.event.MouseEvent) => {
+			if (!$map) throw new Error('Map is not initialized');
+			if (!randomSelectedPlace) throw new Error('No place selected');
+
 			const clickedCoordinate = event.latLng;
 			const distance = computeDistanceBetween(coordinate, {
 				latitude: clickedCoordinate.getLat(),
@@ -54,10 +58,11 @@
 
 			if (distance <= 1000) {
 				isFinished = true;
-				const { marker, overlay } = createMarker($map, {
+				const { marker } = createMarker($map, {
 					finished: isFinished,
 					leftTime,
 					coordinate: randomSelectedPlace.result.coordinate,
+					onClickOverlay: openPlaceDetailsHandler(randomSelectedPlace),
 					place: randomSelectedPlace
 				});
 
@@ -103,7 +108,8 @@
 				const { marker } = createMarker($map, {
 					finished: isFinished,
 					coordinate: randomSelectedPlace.result.coordinate,
-					place: randomSelectedPlace
+					place: randomSelectedPlace,
+					onClickOverlay: openPlaceDetailsHandler(randomSelectedPlace)
 				});
 
 				$markers.push(marker);
@@ -113,8 +119,17 @@
 		}
 	});
 
+	function openPlaceDetailsHandler(place: Place) {
+		return () => {
+			selectedByOverlayPlace = place;
+			$openPlaceDetails = true;
+		};
+	}
+
 	openPlaceDetails.subscribe((open) => {
 		if (!$map) return;
+
+		if (!open && $markers.length === 0) return;
 
 		if (!open && $markers.length > 0) {
 			resetToStartState($map);
@@ -133,16 +148,29 @@
 			$timer.resetTime();
 		}
 
-		if (!randomSelectedPlace) throw new Error('No place selected');
+		const place = (() => {
+			const isOpenByOverlay = $selectedArea === undefined;
+			if (isOpenByOverlay) {
+				if (!selectedByOverlayPlace)
+					throw new Error('selectedByOverlayPlace is null when opening PlaceDetails');
+
+				return selectedByOverlayPlace;
+			}
+
+			if (!randomSelectedPlace)
+				throw new Error('randomSelectedPlace is null when opening PlaceDetails');
+
+			return randomSelectedPlace;
+		})();
 
 		const placeDetails = generatePlaceDetails({
-			place: randomSelectedPlace,
-			keywords: randomSelectedPlace.start.keywords,
+			place,
+			keywords: place.start.keywords,
 			...(isFinished ? { finished: true, leftTime } : { finished: false })
 		});
 		selectedPlaceDetails = placeDetails;
 
-		navigateToPlace($map, randomSelectedPlace);
+		navigateToPlace($map, place);
 
 		function generatePlaceDetails(props: GeneratePlaceDetailsProps): SelectedPlaceDetails {
 			return {
