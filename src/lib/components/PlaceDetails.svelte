@@ -42,7 +42,7 @@
 					</h1>
 					{#if place.finished}
 						<p use:melt={$description}>
-							⏳ {place.leftTime / $timer.interval}초만에 맞춤
+							⏳ {$timer.maxTime / $timer.interval - place.leftTime / $timer.interval}초만에 맞춤
 						</p>
 					{:else}
 						<p use:melt={$description}>⌛ 시간 초과</p>
