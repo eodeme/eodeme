@@ -3,7 +3,8 @@
 		randomChooseAvailablePlace,
 		createMarker,
 		computeDistanceBetween,
-		getOffsetCenterRight
+		getOffsetCenterRight,
+		retrieveDefaultLatLngAndLevel
 	} from '$lib/maps';
 	import { selectedArea, map, markers, openPlaceDetails, timer } from '$lib/stores';
 	import { fly } from 'svelte/transition';
@@ -113,13 +114,26 @@
 	});
 
 	openPlaceDetails.subscribe((open) => {
-		if (!open) {
-			selectedPlaceDetails = null;
+		if (!$map) return;
+
+		if (!open && $markers.length > 0) {
+			resetToStartState($map);
 			return;
 		}
 
+		function resetToStartState(map: kakao.maps.Map) {
+			$selectedArea = undefined;
+			const { center, level } = retrieveDefaultLatLngAndLevel();
+			map.setCenter(center);
+			map.setLevel(level);
+
+			selectedPlaceDetails = null;
+			isFinished = null;
+			hintLastIndex = 0;
+			$timer.resetTime();
+		}
+
 		if (!randomSelectedPlace) throw new Error('No place selected');
-		if (!$map) throw new Error('Map is not initialized');
 
 		const placeDetails = generatePlaceDetails({
 			place: randomSelectedPlace,

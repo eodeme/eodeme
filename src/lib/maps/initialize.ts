@@ -1,10 +1,4 @@
-export function initializeMap(
-	container: HTMLElement,
-	options: kakao.maps.MapOptions = {
-		center: new kakao.maps.LatLng(33.37766874532601, 126.54238118414199),
-		level: 9
-	}
-) {
+export function initializeMap(container: HTMLElement, options = retrieveDefaultLatLngAndLevel()) {
 	const map = new kakao.maps.Map(container, options);
 
 	const mapTypeControl = new kakao.maps.MapTypeControl();
@@ -16,4 +10,11 @@ export function initializeMap(
 	map.setCopyrightPosition(kakao.maps.CopyrightPosition.BOTTOMRIGHT, true);
 
 	return map;
+}
+
+export function retrieveDefaultLatLngAndLevel() {
+	return {
+		center: new kakao.maps.LatLng(33.37766874532601, 126.54238118414199),
+		level: 9
+	};
 }
