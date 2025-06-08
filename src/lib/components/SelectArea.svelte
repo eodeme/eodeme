@@ -54,8 +54,8 @@
 					<li>
 						<button
 							class="toggle-item"
-							data-disabled={$selectedArea === areaName}
-							disabled={checkIsAvailableArea(areaName) === false ||
+							disabled={$selectedArea === areaName ||
+								checkIsAvailableArea(areaName) === false ||
 								($value !== undefined && $value !== areaName)}
 							use:melt={$item({ value: areaName, disabled: map === null })}
 						>
