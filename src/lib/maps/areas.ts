@@ -22,11 +22,18 @@ export function checkIsAvailableArea(areaName: AreaName): boolean {
 	return places.some((place) => place.start.EMD_CD === code.EMD_CD);
 }
 
-export function randomChooseAvailablePlace(areaName: AreaName): Place {
+export function randomChooseAvailablePlace(
+	areaName: AreaName,
+	PLAYED_EMD_CD_LIST: string[]
+): Place {
 	const filteredPlaces = filterAvailablePlaces(areaName);
 	if (filteredPlaces.length === 0) throw new Error(`No places available for area "${areaName}"`);
 
-	return filteredPlaces[Math.floor(Math.random() * filteredPlaces.length)];
+	const availablePlaces = filteredPlaces.filter(
+		(place) => !PLAYED_EMD_CD_LIST.includes(place.start.EMD_CD)
+	);
+
+	return availablePlaces[Math.floor(Math.random() * availablePlaces.length)];
 }
 
 function filterAvailablePlaces(areaName: AreaName): ReadonlyArray<Place> {

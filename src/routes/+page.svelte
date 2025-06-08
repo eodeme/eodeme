@@ -6,14 +6,20 @@
 		getOffsetCenterRight,
 		retrieveDefaultLatLngAndLevel
 	} from '$lib/maps';
-	import { selectedArea, map, markers, openPlaceDetails, timer } from '$lib/stores';
+	import { selectedArea, map, playedPlaces, openPlaceDetails, timer } from '$lib/stores';
 	import { fly } from 'svelte/transition';
 	import PlaceDetails from '$lib/components/PlaceDetails.svelte';
 
 	let leftTime = $derived($timer.maxTime - $timer.currentTime);
 	let timeIsOut = $derived(leftTime <= 0);
 
-	let randomSelectedPlace = $derived($selectedArea && randomChooseAvailablePlace($selectedArea));
+	let randomSelectedPlace = $derived(
+		$selectedArea &&
+			randomChooseAvailablePlace(
+				$selectedArea,
+				$playedPlaces.map(({ EMD_CD }) => EMD_CD)
+			)
+	);
 	let selectedByOverlayPlace = $state<Place | null>(null);
 	let selectedPlaceDetails = $state<SelectedPlaceDetails>(null);
 
@@ -44,7 +50,7 @@
 		if (!$map) return () => {};
 		if (isFinished) return () => {};
 
-		const { coordinate } = randomSelectedPlace?.result;
+		const { coordinate } = randomSelectedPlace.result;
 
 		const clickMapHandler = (event: kakao.maps.event.MouseEvent) => {
 			if (!$map) throw new Error('Map is not initialized');
@@ -58,7 +64,7 @@
 
 			if (distance <= 1000) {
 				isFinished = true;
-				const { marker } = createMarker($map, {
+				const created = createMarker($map, {
 					finished: isFinished,
 					leftTime,
 					coordinate: randomSelectedPlace.result.coordinate,
@@ -68,9 +74,7 @@
 
 				$openPlaceDetails = true;
 
-				$markers.push(marker);
-
-				$openPlaceDetails = true;
+				$playedPlaces.push({ EMD_CD: randomSelectedPlace.start.EMD_CD });
 			} else {
 				addHintIndex();
 			}
@@ -105,14 +109,13 @@
 			setTimeout(() => {
 				isFinished = false;
 
-				const { marker } = createMarker($map, {
+				const created = createMarker($map, {
 					finished: isFinished,
 					coordinate: randomSelectedPlace.result.coordinate,
 					place: randomSelectedPlace,
 					onClickOverlay: openPlaceDetailsHandler(randomSelectedPlace)
 				});
-
-				$markers.push(marker);
+				$playedPlaces.push({ EMD_CD: randomSelectedPlace.start.EMD_CD });
 
 				$openPlaceDetails = true;
 			});
@@ -129,9 +132,9 @@
 	openPlaceDetails.subscribe((open) => {
 		if (!$map) return;
 
-		if (!open && $markers.length === 0) return;
+		if (!open && $playedPlaces.length === 0) return;
 
-		if (!open && $markers.length > 0) {
+		if (!open && $playedPlaces.length > 0) {
 			resetToStartState($map);
 			return;
 		}

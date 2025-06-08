@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 
 export const selectedArea = writable<AreaName | undefined>(undefined);
 export const map = writable<kakao.maps.Map | undefined>(undefined);
-export const playedPlaces = writable<{ marker: kakao.maps.Marker; EMD_CD: string }[]>([]);
+export const playedPlaces = writable<{ EMD_CD: string }[]>([]);
 export const openPlaceDetails = writable(false);
 
 const maxTime = 10 * 1000;
