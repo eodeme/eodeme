@@ -59,7 +59,7 @@
 					<dd>{place.address}</dd>
 					<dt><span aria-label="장소 정보">🌐</span></dt>
 					<dd>
-						<a href={place.outlink.visitjeju} target="_blank" rel="noopener"
+						<a class="underline" href={place.outlink.visitjeju} target="_blank" rel="noopener"
 							>{place.placeName} - 비짓제주 (https://www.visitjeju.net)</a
 						>
 					</dd>
@@ -67,9 +67,9 @@
 					<!-- <dt>🔗</dt> -->
 					<!-- <dd></dd> -->
 					<dt><span aria-label="아웃 링크">🗺️</span></dt>
-					<dd>
+					<dd class="[&>a]:underline">
 						<a href={place.outlink.kakaoMap} target="_blank" rel="noopener">카카오 맵</a> |
-						<a href={place.outlink.naverMap} target="_blank" rel="noopener">네이버 맵</a> 아웃링크
+						<a href={place.outlink.naverMap} target="_blank" rel="noopener">네이버 맵</a> 링크
 					</dd>
 				</dl>
 			</article>
