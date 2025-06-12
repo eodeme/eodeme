@@ -41,7 +41,7 @@ export function createMarker(map: kakao.maps.Map, options: MarkerOptions) {
 	const content = document.createElement('article');
 	content.className = 'w-[128px] bg-gray-200 rounded shadow-md cursor-pointer';
 	content.innerHTML = `
-  <img src="${options.place.start.picture}" alt="marker image" class="w-full rounded-t-lg" />
+  <img src="${options.place.start.picture}" alt="marker image" class="w-full h-[100px] object-cover rounded-t-lg" />
   <div class="font-medium p-[5px]">
     <div class="text-[10px] text-center p-[2px]">${options.place.result.placeName}</div>
   </div>

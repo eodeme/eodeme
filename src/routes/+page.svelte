@@ -217,7 +217,7 @@
 	</div>
 
 	<img
-		class="absolute bottom-[16px] left-[0] z-1 w-[466px] rounded-tr-[8px]"
+		class="absolute bottom-[16px] left-[0] z-1 h-[350px] w-[466px] rounded-tr-[8px] object-cover"
 		src={start.picture}
 		alt="hintImage"
 	/>
