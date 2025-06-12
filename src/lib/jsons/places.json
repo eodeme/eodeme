@@ -1,29 +1,6 @@
 [
 	{
 		"start": {
-			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202410/16/57127b8a-f9c3-4874-8541-3261e6da44d5.jpg",
-			"description": "분화구 형태의 오름이다. 약 10만 년 전 화산 활동으로 형성되었다.",
-			"keywords": ["제주도오름", "용암동굴", "트래킹", "제주자연", "오름추천"],
-			"hints": [
-				"제주도의 오름 중 유일하게 유네스코 세계자연유산에 등재되었다.",
-				"용암류가 경사를 따라 북동쪽 해안가까지 흘러갔으며 숲이 우거져 검게 보이는 것이 특징이다."
-			],
-			"EMD_CD": "50110259",
-			"COL_ADM_SE": "50110"
-		},
-		"result": {
-			"placeName": "거문오름",
-			"coordinate": { "latitude": 33.454803, "longitude": 126.717914 },
-			"address": "제주특별자치도 제주시 조천읍 선교로 569-36",
-			"outlink": {
-				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500034",
-				"naverMap": "https://map.naver.com/p/entry/place/20378654?lng=126.714934&lat=33.4573626&placePath=%2Fhome&entry=plt&searchType=place",
-				"kakaoMap": "https://place.map.kakao.com/18489468"
-			}
-		}
-	},
-	{
-		"start": {
 			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202410/21/3136dc6e-7b5a-41b2-97a5-1056e51f6528.jpg",
 			"description": "마치 예리한 조각 칼로 깎아낸 듯한 4~6각형 형태의 기둥이다. 육모꼴의 돌 기둥이 병풍처럼 둘러 쳐져 있다다.",
 			"keywords": ["제주여행", "제주바다", "유네스코", "제주자연", "제주도볼거리"],
@@ -50,6 +27,41 @@
 	},
 	{
 		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202111/02/a9d11a6c-350f-4574-a697-ed9f65df1f81.jpg",
+			"description": "총 2천3백여 종의 식물이 살고 있으며, 온실 안에서는 약 절반인 1300여 종의 식물이 살고 있는 동양 최대의 온실 식물원이다.",
+			"keywords": [
+				"제주도여행",
+				"서귀포관광지",
+				"식물원",
+				"힐링",
+				"포토존",
+				"실내관광지",
+				"반려동물동반입장",
+				"우수관광사업체"
+			],
+			"hints": [
+				"중문 관광단지 북쪽에 위치하며 1132로를 타면 쉽게 갈 수 있다.",
+				"이름은 아름다운 땅이란 뜻을 지녔으며, 대지 11만 2200㎡의 외부 정원과 1만 1361㎡의 실내 식물원으로 구성되어 있다."
+			],
+			"EMD_CD": "50130112",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "여미지식물원",
+			"coordinate": {
+				"latitude": 33.2531755,
+				"longitude": 126.4149952
+			},
+			"address": "제주특별자치도 서귀포시 중문관광로 93",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500442",
+				"naverMap": "https://naver.me/54Lbk1t7",
+				"kakaoMap": "https://place.map.kakao.com/8004227"
+			}
+		}
+	},
+	{
+		"start": {
 			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202409/24/d58bae0f-095a-4998-8ca4-d09e0aa0ac71.jpg",
 			"description": "화가의 기념품이나 각종 수공예품, 편집샵들이 있는 거리이다. 서귀포에 머물며 명작을 남긴 예술가들의 산책 길도 조성되어 있다.",
 			"keywords": ["서귀포올레시장", "차없는거리", "예술", "문화", "산책"],
@@ -71,6 +83,408 @@
 				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000020199",
 				"naverMap": "https://map.naver.com/p/entry/place/17046195?c=15.00,0,0,0,dh",
 				"kakaoMap": "https://place.map.kakao.com/8523750"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202409/24/60979a49-ae67-41d7-9c53-4781f613ca89.jpg",
+			"description": "폭포의 길이 22m, 그 아래 못의 깊이가 20m나 되며, 하늘과 땅이 만나서 이룬 연못이라는 의미를 가진 폭포이다.",
+			"keywords": [
+				"제주도갈만한곳",
+				"서귀포시내",
+				"공영관광지",
+				"포토존",
+				"유네스코",
+				"산책로",
+				"용천수"
+			],
+			"hints": [
+				"폭포가 떨어지는 못은 무태장어가 서식하는 것으로 유명하며, 무태장어 서식분포의 북방한계선이기 떄문에 천연기념물 제 27호로 지정되었다.",
+				"폭포 서남쪽에는 구실잣밤나무, 동백나무 등 상록수와 난종류가 울창하게 우거져 난대림을 이루고 있으며, 이 숲에 자생하는 담팔수나무는 이곳이 그 북방 한계선으로써 천연기념물 163호로 지정되었다.",
+				"폭포 남쪽에 새연교와 새섬이 위치해 있다."
+			],
+			"EMD_CD": "5013101",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "천지연폭포",
+			"coordinate": {
+				"latitude": 33.24698,
+				"longitude": 126.554397
+			},
+			"address": "제주특별자치도 서귀포시 남성중로 2-15",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500618",
+				"naverMap": "https://naver.me/xAFC3J5w",
+				"kakaoMap": "https://place.map.kakao.com/8100102"
+			}
+		}
+	},
+
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202408/16/9df6665f-e0cf-4b8a-8d1c-2ec895745448.jpg",
+			"description": "들머리의 신양해변백사장, 끝머리 언덕위 평원에 드리워진 유채밭, 여유롭게 풀을 뜯는 제주조랑말들, 바위로 둘러친 해안절벽과 우뚝 치솟은 전설어린 선바위 등은 전형적인 제주의 아름다움을 만날 수 있다.",
+			"keywords": [
+				"서귀포가볼만한곳",
+				"제주도서쪽코스",
+				"제주도관광코스",
+				"제주바다",
+				"해안길",
+				"성산",
+				"선녀바위",
+				"붉은오름"
+			],
+			"hints": [
+				"제주 동부해안에 볼록 튀어나온 곳에 위치하며 성산 일출봉을 배경으로한 해안풍경이 일품이다.",
+				"제주의 다른 해안과는 달리 송이라는 붉은 화산재로 되어 있고, 밀물과 썰물에 따라 물속에 잠겼다가 일어서는 기암괴석들은 어디에서도 볼 수 없는 자연의 수석전시회를 연출한다",
+				"이름에 육지에서 바다로 톡 튀어나온 '곶'을 뜻하는 제주방언이 들어가있다.."
+			],
+			"EMD_CD": "50130259",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "섭지코지",
+			"coordinate": {
+				"latitude": 33.4236948,
+				"longitude": 126.9296022
+			},
+			"address": "제주특별자치도 서귀포시 성산읍 섭지코지로 262",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500343",
+				"naverMap": "https://naver.me/xoH8AY7q",
+				"kakaoMap": "https://place.map.kakao.com/8413659"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202207/14/4bcd710c-1b9c-46a2-8d52-d41907853ded.jpg",
+			"description": "‘새로운 태양이 떠오르는 휴식 공간’이라는 주제로 설립되었다. 제주 토종 동백나무, 비자나무를 포함한 60만본의 식물들을 관리, 보존하고 있으며, 사계절 꽃의 축제가 열리고 있는 식물원이다.",
+			"keywords": [
+				"테마공원",
+				"우수관광사업체",
+				"실내관광지",
+				"어트랙션",
+				"체험",
+				"곶자왈",
+				"반려동물동반입장",
+				"무장애관광"
+			],
+			"hints": [
+				"천연용암동굴인 미천굴을 중심으로 다양한 테마로 구성되어 있다.",
+				"수변공원, 잔디광장, 제주종갓집초가, 화석원, 분재정원, 조각의 거리, 공예체험 아트센터, 선인장 온실, 아열대 식물원 등이 있다."
+			],
+			"EMD_CD": "50130259",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "일출랜드",
+			"coordinate": {
+				"latitude": 33.3835243,
+				"longitude": 126.8413634
+			},
+			"address": "제주특별자치도 서귀포시 성산읍 중산간동로 4150-30",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500514",
+				"naverMap": "https://naver.me/5r9IIneh",
+				"kakaoMap": "https://place.map.kakao.com/10399499"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202301/03/b626834f-f06c-484d-ac5e-3c37c3f7dc82.jpg",
+			"description": "산방산의 남쪽, 가파도가 손에 잡힐 듯 보이는 바닷가에 불끈 솟은 산이다. 99개의 작은 봉우리가 모여있어 일명 99봉이라고도 한다.",
+			"keywords": [
+				"일몰",
+				"일출",
+				"산",
+				"해변",
+				"걷기/등산",
+				"자연경관",
+				"수국",
+				"무장애관광",
+				"공영관광지"
+			],
+			"hints": [
+				"완만한 길을 따라 오르다 보면 형제섬과 가파도, 멀리 마라도까지 볼수 있다.",
+				"해안가 절벽에는 2차 세계대전 당시 일본군이 제주사람들을 동원해 뚫어놓은 인공동굴 15개가 있다."
+			],
+			"EMD_CD": "50130250",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "송악산",
+			"coordinate": {
+				"latitude": 33.199127,
+				"longitude": 126.290515
+			},
+			"address": "제주특별자치도 서귀포시 대정읍 상모리 179-4",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500378",
+				"naverMap": "https://naver.me/5UEcmXj3",
+				"kakaoMap": "https://place.map.kakao.com/7956367"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202111/17/dc24c92e-b6db-4c76-82a5-8ac6ae51fe24.jpg",
+			"description": "다양한 생명들이 살아 숨 쉬는 신비로운 곳인 곶자왈의 생태를 보호하고, 사람들에게 휴양 공간, 체험·학습 등을 제공하는 생태관광지이다.",
+			"keywords": [
+				"숲길",
+				"걷기/등산",
+				"자연경관",
+				"도보여행",
+				"곶자왈",
+				"숲",
+				"어트랙션",
+				"식물군락지"
+			],
+			"hints": [
+				"보성리, 구억리, 신평리에 걸쳐 총 1,546,757㎡ 면적으로 이루어져 있다.",
+				"무릉곶자왈, 노리매 공원이 근처에 있다."
+			],
+			"EMD_CD": "50130250",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "제주곶자왈도립공원",
+			"coordinate": {
+				"latitude": 33.286475,
+				"longitude": 126.270764
+			},
+			"address": "제주특별자치도 서귀포시 대정읍 에듀시티로 178",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000021111",
+				"naverMap": "https://naver.me/xRhEQ3TG",
+				"kakaoMap": "https://place.map.kakao.com/27254363"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202409/25/88cd0d87-306d-46e1-9b97-956fdf893f88.jpg",
+			"description": "천연기념물 제526호로, 마치 바다 속으로 들어가는 용의 머리를 닮은 모습에서 이름을 따왔다.",
+			"keywords": [
+				"제주도관광",
+				"제주서귀포가볼만한곳",
+				"유네스코",
+				"공영관광지",
+				"바다",
+				"산방산",
+				"포토존",
+				"지질문화"
+			],
+			"hints": [
+				"산방산 자락에서 해안가로 뻗어나가는 곳에 위치한다",
+				"근처에는 네덜란드 선인 하멜의 선박이 난파되어 이곳에 표착했던 것을 기념하는 하멜 표류 기념비가 서있다."
+			],
+			"EMD_CD": "50130310",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "용머리해안",
+			"coordinate": {
+				"latitude": 33.231705,
+				"longitude": 126.314832
+			},
+			"address": "제주특별자치도 서귀포시 안덕면 사계리 112-3",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500471",
+				"naverMap": "https://naver.me/55rm7lSA",
+				"kakaoMap": "https://place.map.kakao.com/10706886"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202111/04/36a5973b-eff2-480e-9f13-6f16357b6e8f.jpg",
+			"description": "2008년 아시아 최초로 개장한 개인 소장 자동차 박물관이며, 2019년 7월 피아노 박물관이 확장 개관했다. 전시된 자동차와 피아노 관람과 더불어 우리나라 최초 어린이 무료 교통체험과, 음악 체험 프로그램, 사슴, 토끼 먹이주기 체험, 곶자왈 숲 산책로 힐링로드 등을 즐길 수 있다.",
+			"keywords": [
+				"미술/박물관",
+				"실내관광지",
+				"문화관광",
+				"어트랙션",
+				"안전여행스탬프",
+				"무장애관광"
+			],
+			"hints": [
+				"세계적조각가 ‘오퀴스트 로댕’이 조각한 전 세계 단 하나뿐인 진귀한 피아노를 비롯해 베토벤, 쇼팽, 하이든 등 위대한 음악가들이 사랑했던 피아노의 특별한 스토리와 300년의 역사가 살아 숨쉬는 피아노 예술품을 직접 만나볼 수 있다.",
+				"주변에 카멜리아힐, 서광리 곶자왈생태탕밤로, 소인국테마파크 등이 위치해 있다."
+			],
+			"EMD_CD": "50130310",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "세계자동차 & 피아노박물관",
+			"coordinate": {
+				"latitude": 33.283195,
+				"longitude": 126.34977
+			},
+			"address": "제주특별자치도 서귀포시 안덕면 중산간서로 1610",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500355",
+				"naverMap": "https://naver.me/GALR1J9T",
+				"kakaoMap": "https://place.map.kakao.com/7952882"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202308/29/f19ecab3-bb63-4b11-b4bf-dfc1f3e7f1fb.jpg",
+			"description": "수많은 꽃들과 한라산풍경이 더해저 더욱 아름다움을 자랑하는 꽃 정원이다. 연중 무휴이며, 매년 수차례의 꽃 축제가 있고, 흑돼지, 토끼, 소, 닭 등의 동물들과 교감하며 먹이주기 체험을 할 수 있다.",
+			"keywords": [
+				"제주도서귀포가볼만한곳",
+				"계절꽃축제",
+				"포토스팟",
+				"동물농장",
+				"먹이주기",
+				"제주자연",
+				"제주도체험",
+				"힐링",
+				"우수관광사업체",
+				"반려동물동반입장"
+			],
+			"hints": [
+				"서귀포시 남원읍 신례리 한라산 자락에 있는 자연생활 체험공원이다.",
+				"대표적으로 감귤 체험과 같은 계절 체험을 제공하며, 매화 축제, 수국 축제, 핑크뮬리 축제, 동백 축제 등 다양한 계절 축제가 열리 있다."
+			],
+			"EMD_CD": "50130253",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "휴애리 자연생활공원",
+			"coordinate": {
+				"latitude": 33.308833,
+				"longitude": 126.633751
+			},
+			"address": "제주특별자치도 서귀포시 남원읍 신례동로 256",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500707",
+				"naverMap": "https://naver.me/x8tpBwlU",
+				"kakaoMap": "https://place.map.kakao.com/27581976"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202112/01/30e017d0-7ad0-4730-942a-4a23bb2dddf8.jpg",
+			"description": "주변 오름들 중에서 비고가 가장 높고 가파른 사면으로 이루어져 있으며, 동쪽 봉우리가 정상봉으로 등성마루가 북서, 북으로 활처럼 휘어져 있고 북동쪽으로 깊게 패인 반달 모양의 말굽형 화구를 지닌 화산체이다.",
+			"keywords": ["오름", "걷기/등산", "자연경관", "도보여행", "단풍"],
+			"hints": [
+				"화구 전사면에는 삼나무 조림지가 울창한 숲을 이루고 있고, 뒷사면으로 이어진 곳인 오름 서측에는 이름을 알 수 없는 자그마한 화산체가 딸려 있다.",
+				"남원읍 한남리 쓰레기 매립장 뒷 편에 위치한 오름으로, 매립장 옆길로 따라 들어가면 오름자락까지 갈 수 있다."
+			],
+			"EMD_CD": "50130253",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "사려니오름",
+			"coordinate": {
+				"latitude": 33.339799,
+				"longitude": 126.645691
+			},
+			"address": "제주특별자치도 서귀포시 남원읍 516로 1648-87",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500279",
+				"naverMap": "https://naver.me/FbqHsTMU",
+				"kakaoMap": "https://place.map.kakao.com/7916414"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202407/08/b136ca14-3983-4574-a81c-5f8808df56e5.jpg",
+			"description": "제주의 문화유산을 원형 그대로 보존하기 위해 19세기를 기준으로 산촌, 중산간촌, 어촌, 토속신앙을 비롯해 제주영문과 유배소 등을 전문가의 고증을 통해 구성한 박물관이다.",
+			"keywords": [
+				"제주서귀포가볼만한곳",
+				"제주도문화",
+				"민속촌",
+				"야간개장",
+				"제주핫플",
+				"제주동쪽여행",
+				"가족여행",
+				"반려동물동반입장"
+			],
+			"hints": [
+				"기존 전시 외에도 민속체험 축제가 한창이다. 민속체험축제는 초대형 장기, 윷놀이, 굴렁쇠 돌리기, 투호 놀이, 제기차기 등 민속촌 곳곳에서 다양한 민속체험 놀이를 해보는 것이 가능하다.",
+				"표선해수욕장과 표선항이 바로 옆에 위치하고 있다."
+			],
+			"EMD_CD": "50130320",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "제주민속촌",
+			"coordinate": {
+				"latitude": 33.3225098,
+				"longitude": 126.8418176
+			},
+			"address": "제주특별자치도 서귀포시 표선면 민속해안로 631-34",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500553",
+				"naverMap": "https://naver.me/Gct7Fa9Y",
+				"kakaoMap": "https://place.map.kakao.com/8063566"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202111/01/3040195a-20e8-4acb-bffa-582e955528c2.jpg",
+			"description": "3개의 분화구(굼부리)와 6개의 봉우리로 이루어진 오름으로, 넓은 평원에 펼쳐진 억새밭으로 유명하다.",
+			"keywords": [
+				"일출",
+				"오름",
+				"걷기/등산",
+				"가을",
+				"자연경관",
+				"도보여행",
+				"억새",
+				"반려동물동반입장"
+			],
+			"hints": [
+				"가을이면 오름을 뒤덮은 억새 군락이 장관을 이루며, 이런 풍경에 사람들은 '오름의 여왕'이라고 부른다.",
+				"표선면 가시리에 위치해 있으며, 산정에 도착하면 많은 억새 솜털 뒤로 큰사슴이오름(대록산)과 풍력발전단지가 보인다."
+			],
+			"EMD_CD": "50130320",
+			"COL_ADM_SE": "50130"
+		},
+		"result": {
+			"placeName": "따라비오름",
+			"coordinate": {
+				"latitude": 33.388584,
+				"longitude": 126.752778
+			},
+			"address": "제주특별자치도 서귀포시 표선면 가시리 산 62",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500168",
+				"naverMap": "https://naver.me/xDJXnYo9",
+				"kakaoMap": "https://place.map.kakao.com/25036598"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202410/16/57127b8a-f9c3-4874-8541-3261e6da44d5.jpg",
+			"description": "분화구 형태의 오름이다. 약 10만 년 전 화산 활동으로 형성되었다.",
+			"keywords": ["제주도오름", "용암동굴", "트래킹", "제주자연", "오름추천"],
+			"hints": [
+				"제주도의 오름 중 유일하게 유네스코 세계자연유산에 등재되었다.",
+				"용암류가 경사를 따라 북동쪽 해안가까지 흘러갔으며 숲이 우거져 검게 보이는 것이 특징이다."
+			],
+			"EMD_CD": "50110259",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "거문오름",
+			"coordinate": { "latitude": 33.454803, "longitude": 126.717914 },
+			"address": "제주특별자치도 제주시 조천읍 선교로 569-36",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500034",
+				"naverMap": "https://map.naver.com/p/entry/place/20378654?lng=126.714934&lat=33.4573626&placePath=%2Fhome&entry=plt&searchType=place",
+				"kakaoMap": "https://place.map.kakao.com/18489468"
 			}
 		}
 	},
