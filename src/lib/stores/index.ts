@@ -11,14 +11,10 @@ type TimerState = {
 	readonly maxTime: number;
 	readonly interval: number;
 	currentTime: number;
-	resetTime: () => void;
 };
 
 export const timer = writable<TimerState>({
 	maxTime,
 	interval: 1000,
-	currentTime: 0,
-	resetTime() {
-		this.currentTime = 0;
-	}
+	currentTime: 0
 });

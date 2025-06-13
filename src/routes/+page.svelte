@@ -203,7 +203,7 @@
 		selectedPlaceDetails = null;
 		isFinished = null;
 		hintLastIndex = 0;
-		$timer.resetTime();
+		$timer.currentTime = 0;
 	}
 </script>
 
