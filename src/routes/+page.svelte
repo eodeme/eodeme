@@ -130,26 +130,20 @@
 		};
 	}
 
+	$effect(() => {
+		if ($selectedArea === undefined) {
+			resetToStartState();
+		}
+	});
+
 	openPlaceDetails.subscribe((open) => {
 		if (!$map) return;
 
 		if (!open && $playedPlaces.length === 0) return;
 
 		if (!open && $playedPlaces.length > 0) {
-			resetToStartState($map);
+			resetToStartState();
 			return;
-		}
-
-		function resetToStartState(map: kakao.maps.Map) {
-			$selectedArea = undefined;
-			const { center, level } = retrieveDefaultLatLngAndLevel();
-			map.setCenter(center);
-			map.setLevel(level);
-
-			selectedPlaceDetails = null;
-			isFinished = null;
-			hintLastIndex = 0;
-			$timer.resetTime();
 		}
 
 		const isOpenByOverlay = $selectedArea === undefined;
@@ -197,6 +191,20 @@
 			map.setCenter(offsetCenter);
 		}
 	});
+
+	function resetToStartState() {
+		if (!$map) return;
+
+		$selectedArea = undefined;
+		const { center, level } = retrieveDefaultLatLngAndLevel();
+		$map.setCenter(center);
+		$map.setLevel(level);
+
+		selectedPlaceDetails = null;
+		isFinished = null;
+		hintLastIndex = 0;
+		$timer.resetTime();
+	}
 </script>
 
 {#if start}
