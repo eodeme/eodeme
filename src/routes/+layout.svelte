@@ -3,7 +3,7 @@
 	import { initializeMap } from '$lib/maps';
 	import { map } from '$lib/stores';
 
-	import { onMount, setContext } from 'svelte';
+	import { onMount } from 'svelte';
 	import SelectArea from '$lib/components/SelectArea.svelte';
 
 	let mapContainer: HTMLMapElement;
