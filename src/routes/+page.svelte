@@ -6,7 +6,7 @@
 		getOffsetCenterRight,
 		retrieveDefaultLatLngAndLevel
 	} from '$lib/maps';
-	import { selectedArea, map, playedPlaces, openPlaceDetails, timer } from '$lib/stores';
+	import { selectedArea, map, playedPlacesAddresses, openPlaceDetails, timer } from '$lib/stores';
 	import { fly } from 'svelte/transition';
 	import PlaceDetails from '$lib/components/PlaceDetails.svelte';
 
@@ -14,11 +14,7 @@
 	let timeIsOut = $derived(leftTime <= 0);
 
 	let randomSelectedPlace = $derived(
-		$selectedArea &&
-			randomChooseAvailablePlace(
-				$selectedArea,
-				$playedPlaces.map(({ EMD_CD }) => EMD_CD)
-			)
+		$selectedArea && randomChooseAvailablePlace($selectedArea, $playedPlacesAddresses)
 	);
 	let selectedByOverlayPlace = $state<(Place & { leftTime: number }) | null>(null);
 	let selectedPlaceDetails = $state<SelectedPlaceDetails>(null);
@@ -71,7 +67,7 @@
 
 				$openPlaceDetails = true;
 
-				$playedPlaces.push({ EMD_CD: randomSelectedPlace.start.EMD_CD });
+				$playedPlacesAddresses.push(randomSelectedPlace.result.address);
 			} else {
 				addHintIndex();
 			}
@@ -115,7 +111,7 @@
 						leftTime
 					})
 				});
-				$playedPlaces.push({ EMD_CD: randomSelectedPlace.start.EMD_CD });
+				$playedPlacesAddresses.push(randomSelectedPlace.result.address);
 
 				$openPlaceDetails = true;
 			});
@@ -139,9 +135,9 @@
 	openPlaceDetails.subscribe((open) => {
 		if (!$map) return;
 
-		if (!open && $playedPlaces.length === 0) return;
+		if (!open && $playedPlacesAddresses.length === 0) return;
 
-		if (!open && $playedPlaces.length > 0) {
+		if (!open && $playedPlacesAddresses.length > 0) {
 			resetToStartState();
 			return;
 		}

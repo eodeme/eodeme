@@ -24,13 +24,13 @@ export function checkIsAvailableArea(areaName: AreaName): boolean {
 
 export function randomChooseAvailablePlace(
 	areaName: AreaName,
-	PLAYED_EMD_CD_LIST: string[]
+	playedPlacesAddress: string[]
 ): Place {
 	const filteredPlaces = filterAvailablePlaces(areaName);
 	if (filteredPlaces.length === 0) throw new Error(`No places available for area "${areaName}"`);
 
 	const availablePlaces = filteredPlaces.filter(
-		(place) => !PLAYED_EMD_CD_LIST.includes(place.start.EMD_CD)
+		(place) => !playedPlacesAddress.includes(place.result.address)
 	);
 
 	return availablePlaces[Math.floor(Math.random() * availablePlaces.length)];
