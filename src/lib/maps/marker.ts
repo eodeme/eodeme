@@ -46,12 +46,16 @@ export function createMarker(map: kakao.maps.Map, options: MarkerOptions) {
     <div class="text-[10px] text-center p-[2px]">${options.place.result.placeName}</div>
   </div>
   `;
-	content.addEventListener('click', options.onClickOverlay);
 
 	const overlay = new kakao.maps.CustomOverlay({
 		content,
 		position,
 		yAnchor
+	});
+
+	content.addEventListener('click', () => {
+		overlay.setMap(null);
+		options.onClickOverlay();
 	});
 
 	kakao.maps.event.addListener(marker, 'click', () => {
