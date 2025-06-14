@@ -33,10 +33,10 @@ export function createMarker(map: kakao.maps.Map, options: MarkerOptions) {
 	const position = new kakao.maps.LatLng(options.coordinate.latitude, options.coordinate.longitude);
 
 	const marker = new kakao.maps.Marker({
+		map,
 		image: markerImage,
 		position
 	});
-	marker.setMap(map);
 
 	const content = document.createElement('article');
 	content.className = 'w-[128px] bg-gray-200 rounded shadow-md cursor-pointer';
@@ -49,10 +49,17 @@ export function createMarker(map: kakao.maps.Map, options: MarkerOptions) {
 	content.addEventListener('click', options.onClickOverlay);
 
 	const overlay = new kakao.maps.CustomOverlay({
-		map,
 		content,
 		position,
 		yAnchor
+	});
+
+	kakao.maps.event.addListener(marker, 'click', () => {
+		if (overlay.getMap()) {
+			overlay.setMap(null);
+		} else {
+			overlay.setMap(map);
+		}
 	});
 
 	return {
