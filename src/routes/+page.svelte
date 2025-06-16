@@ -7,8 +7,9 @@
 		retrieveDefaultLatLngAndLevel
 	} from '$lib/maps';
 	import { selectedArea, map, playedPlacesAddresses, openPlaceDetails, timer } from '$lib/stores';
-	import { fly } from 'svelte/transition';
+
 	import PlaceDetails from '$lib/components/PlaceDetails.svelte';
+	import { addToast } from '$lib/components/Toaster.svelte';
 
 	let leftTime = $derived($timer.maxTime - $timer.currentTime);
 	let timeIsOut = $derived(leftTime <= 0);
@@ -23,10 +24,18 @@
 	let start = $derived(randomSelectedPlace?.start);
 
 	let hintLastIndex = $state(0);
-	let currentHit = $derived(start?.hints.slice(0, hintLastIndex) ?? []);
 
 	function addHintIndex() {
 		if (start && hintLastIndex < start.hints.length) {
+			const description = start.hints[hintLastIndex];
+			addToast({
+				data: {
+					title: '<span aria-label="힌트">💡</span>',
+					description,
+					color: '#fff'
+				},
+				closeDelay: 0
+			});
 			hintLastIndex += 1;
 		}
 	}
@@ -204,22 +213,6 @@
 </script>
 
 {#if start}
-	<div
-		class="absolute right-[15px] bottom-[85px] mr-[16px] mb-[18px] flex flex-col-reverse gap-[8px]"
-	>
-		{#each currentHit as hint}
-			<h2
-				class="shadow-[0_4px_8px_rgba(0, 0, 0, 0.3)] z-2 max-w-[360px] bg-black p-[16px] font-[14px] text-white"
-				transition:fly={{
-					y: 30,
-					duration: 200
-				}}
-			>
-				{hint}
-			</h2>
-		{/each}
-	</div>
-
 	<img
 		class="absolute bottom-[16px] left-[0] z-1 h-[350px] w-[466px] rounded-tr-[8px] object-cover"
 		src={start.picture}

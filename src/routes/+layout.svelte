@@ -5,6 +5,7 @@
 
 	import { onMount } from 'svelte';
 	import SelectArea from '$lib/components/SelectArea.svelte';
+	import Toaster from '$lib/components/Toaster.svelte';
 
 	let mapContainer: HTMLMapElement;
 
@@ -21,4 +22,5 @@
 
 <map bind:this={mapContainer} class="absolute top-0 block h-[100vh] w-[100vw]"></map>
 <SelectArea />
+<Toaster />
 {@render children()}
