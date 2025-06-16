@@ -539,5 +539,213 @@
 				"kakaoMap": "https://place.map.kakao.com/10812111"
 			}
 		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/201907/29/5d2ec95d-08e8-4086-8e1e-0885047c154f.jpg",
+			"description": "용이 포요하며 바다에서 솟구쳐 오르는 형상을 따 이름을 지었다.",
+			"keywords": ["일출", "맑음", "자연경관", "포토스팟", "공영관광지"],
+			"hints": [
+				"공항과 가장 가까운 관광지로 해외 여행자나 단체 여행객들이 자주 찾는 관광지다.",
+				"이 곳에서 도두항까지 이어지는 용담-도두해안도로에는 다양한 카페와 맛집이 존재한다."
+			],
+			"EMD_CD": "50110122",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "용두암",
+			"coordinate": {
+				"latitude": 33.5149624,
+				"longitude": 126.5116869
+			},
+			"address": "제주특별자치도 제주시 용담이동 483",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500469",
+				"naverMap": "https://map.naver.com/p/entry/place/13491801?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202506121631&locale=ko&svcName=map_pcv5",
+				"kakaoMap": "https://place.map.kakao.com/11540370"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202410/21/dd229994-9625-44a2-985c-f710bca7f286.jpg",
+			"description": "서부 중산간 오름지대 중에서 으뜸가는 서부의 대표 오름이다, 10월이면 오름 가득 억새가 아름답게 피어난다.",
+			"keywords": ["제주오름", "제주산책", "억새", "애월", "탐방로", "제주가을"],
+			"hints": [
+				"매년 정월대보름을 전후하여 제주도를 대표하는 축제인 들불축제가 열린다.",
+				"저녁 하늘에 샛별과 같이 외롭게 서있다 하여 붙여진 이름이다."
+			],
+			"EMD_CD": "50110253",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "새별오름",
+			"coordinate": {
+				"latitude": 33.36723,
+				"longitude": 126.35711
+			},
+			"address": "제주특별자치도 제주시 애월읍 봉성리 산 59-8",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500309&menuId=DOM_000001718000000000#p1",
+				"naverMap": "https://map.naver.com/p/search/%EC%83%88%EB%B3%84%EC%98%A4%EB%A6%84/place/17029023?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=2&timestamp=202506121655&locale=ko&svcName=map_pcv5&searchText=%EC%83%88%EB%B3%84%EC%98%A4%EB%A6%84",
+				"kakaoMap": "https://place.map.kakao.com/25274725"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202111/04/2f515b1c-54e6-40de-bc74-e8591468fab0.JPG",
+			"description": "제주도가 연안정비 사업의 일환으로 훌륭한 애월 앞바다의 장관을 좀 더 친숙하게 접할 수 있도록 주변 환경과 조화를 이루는데 주안점을 두고 만들었다.",
+			"keywords": ["해변", "경관/포토", "커플", "맑음", "여름", "자연경관"],
+			"hints": [
+				"제주 북서부에 위치한 애월에서 곽지까지 해안을 따라 이어지는 산책로다.",
+				"제주시가 숨은비경31로 선정하고, 제주에서 핫플레이스로 떠오르며 식도락과 제주의 넓고 푸른 바다를 동시에 즐길 수 있다."
+			],
+			"EMD_CD": "50110253",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "한담해변",
+			"coordinate": {
+				"latitude": 33.4600418,
+				"longitude": 126.3105423
+			},
+			"address": "제주특별자치도 제주시 애월읍 애월로1길 26-4",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500682&menuId=DOM_000001718000000000#p1",
+				"naverMap": "https://map.naver.com/p/search/%ED%95%9C%EB%8B%B4%ED%95%B4%EB%B3%80/place/914765966?c=15.00,0,0,0,dh&placePath=/home?entry=bmp&from=map&fromPanelNum=2&timestamp=202506150134&locale=ko&svcName=map_pcv5&searchText=%ED%95%9C%EB%8B%B4%ED%95%B4%EB%B3%80",
+				"kakaoMap": "https://place.map.kakao.com/19293737"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202110/26/c2e1f6c5-4e27-4db4-aa4f-601f0c30f3e1.jpg",
+			"description": "창업자 송봉규가 한림 일대의 광활한 벌판을 일구어 조성한 곳이다. 9개의 테마로 이루어진 테마파크다",
+			"keywords": ["휴식/힐링", "테마공원", "아이", "매화"],
+			"hints": [
+				"야자수 길은 나무들이 높이 솟아 있어 신비로운 느낌을 주고, 적당한 습도가 유지되어 산책하기에 좋다",
+				"용암동굴인 협재굴과 쌍용굴, 황금굴이 있다."
+			],
+			"EMD_CD": "50110250",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "한림공원",
+			"coordinate": {
+				"latitude": 33.3879944,
+				"longitude": 126.2397837
+			},
+			"address": "제주특별자치도 제주시 한림읍 한림로 300(협재리)",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500690&menuId=DOM_000001718000000000#p1",
+				"naverMap": "https://map.naver.com/p/search/%ED%95%9C%EB%A6%BC%EA%B3%B5%EC%9B%90/place/11491281?c=15.00,0,0,0,dh&placePath=/home?entry=bmp&from=map&fromPanelNum=2&timestamp=202506150152&locale=ko&svcName=map_pcv5&searchText=%ED%95%9C%EB%A6%BC%EA%B3%B5%EC%9B%90",
+				"kakaoMap": "https://place.map.kakao.com/10941032"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202408/21/8a1b4b1b-4a06-46a6-87f9-e839954ad174.jpg",
+			"description": "1954년 선교사로 제주에 온 신부가 황무지였던 목장 주변을 개간해 경작하고 새로운 농업 기술을 소개하며 생겨났다.",
+			"keywords": ["제주여행", "제주목장", "테쉬폰", "유기농우유"],
+			"hints": [
+				"목장 안에 우유부단이라는 이름의 카페에는 본 목장에서 나는 유기농 우유로 만든 아이스크림도 있다.",
+				"아름다운 경관과 독특한 건축물인 테쉬폰을 볼 수 있는 곳이다. 테쉬폰은 스냅 및 웨딩촬영의 명소이기도 하다."
+			],
+			"EMD_CD": "50110250",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "성이시돌목장",
+			"coordinate": {
+				"latitude": 33.34617,
+				"longitude": 126.321555
+			},
+			"address": "제주특별자치도 제주시 한림읍 산록남로 53",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_200000000008053&menuId=DOM_000001718000000000#p1",
+				"naverMap": "https://map.naver.com/p/entry/place/12049000?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202506150206&locale=ko&svcName=map_pcv5",
+				"kakaoMap": "https://place.map.kakao.com/11131088"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202506/10/ce1a35b1-fb88-498b-8b74-3318ebd56c0f.jpg",
+			"description": "이곳은 지하수 함양은 물론 보온과 보습 효과가 뛰어나, 북방한계 식물과 남방한계 식물이 공존하는 신비로운 생태환경을 자랑합니다.",
+			"keywords": ["제주여행", "제주동쪽코스", "곶자왈", "테마공원", "어린이", "야간개장"],
+			"hints": [
+				"각기 다른 테마를 가진 정차역으로 구성되어 있어 역마다 색다른 경험을 제공합니다.",
+				"피크닉가든역에서는 아이들이 뛰놀 수 있는 키즈타운과 에코로드로 이어지는 곶자왈 숲길을 만날 수 있다."
+			],
+			"EMD_CD": "50110259",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "에코랜드 테마파크",
+			"coordinate": {
+				"latitude": 33.4617075,
+				"longitude": 126.6703845
+			},
+			"address": "제주특별자치도 제주시 조천읍 번영로 1278-169",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500438&menuId=DOM_000001718000000000#p1",
+				"naverMap": "https://map.naver.com/p/entry/place/19584967?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202506150220&locale=ko&svcName=map_pcv5",
+				"kakaoMap": "https://place.map.kakao.com/17184223"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202407/10/522c3966-0208-490e-8f10-66cddb778421.jpg",
+			"description": "아름다운 에메랄드 빛 바닥 한 폭의 그림처럼 펼쳐져 있고, 그 위에는 밝은 달이 비친다. 특히 수심이 얕은 편이기 때문에 아이를 동반한 가족들이 물놀이를 즐기기 좋다.",
+			"keywords": ["제주바다", "제주도서핑", "해변", "바다", "해수욕장"],
+			"hints": [
+				"다양한 수상레포츠를 즐기며 일정한 높이의 파도가 지속적으로 들어오기 때문에 서핑을 하기에 좋다",
+				"제주도의 동쪽에 있으며, '달이 머문다'는 뜻의 이름을 가진 서정적인 풍경의 마을에 위치한다."
+			],
+			"EMD_CD": "50110256",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "월정리해수욕장",
+			"coordinate": {
+				"latitude": 33.555809,
+				"longitude": 126.796623
+			},
+			"address": "제주특별자치도 제주시 구좌읍 월정리 33-3",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500496&menuId=DOM_000001718000000000#p1",
+				"naverMap": "https://map.naver.com/p/entry/place/20561777?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202506150239&locale=ko&svcName=map_pcv5",
+				"kakaoMap": "https://place.map.kakao.com/17600274"
+			}
+		}
+	},
+	{
+		"start": {
+			"picture": "https://api.cdn.visitjeju.net/photomng/imgpath/202407/08/ae201607-c3b2-44cd-9cdc-a04a478d4e89.jpg",
+			"description": "바람, 물, 여자라는 제주도의 삼다를 주제로 조성한 테마공원이다. 이 곳은 많은 이들에게 기쁨을 주기 위해 조경수를 식재해왔다.",
+			"keywords": ["반려동물동반", "제주핫플", "우수관광사업체", "제주명소", "제주포토존"],
+			"hints": [
+				"이 곳의 산책로인 애지앙은 애지와 이앙을 합성한 단어로 자연과 사람, 사람과 사람을 이어주는 따뜻한 숲길이다.",
+				"세계 최장의 석축 미로공원이다."
+			],
+			"EMD_CD": "50110256",
+			"COL_ADM_SE": "50110"
+		},
+		"result": {
+			"placeName": "메이즈랜드",
+			"coordinate": {
+				"latitude": 33.48875,
+				"longitude": 126.80093
+			},
+			"address": "제주특별자치도 제주시 구좌읍 비자림로 2134-47",
+			"outlink": {
+				"visitjeju": "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000001158&menuId=DOM_000001718000000000#p1",
+				"naverMap": "https://map.naver.com/p/entry/place/20034615?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202506150311&locale=ko&svcName=map_pcv5",
+				"kakaoMap": "https://place.map.kakao.com/13095815"
+			}
+		}
 	}
 ]
