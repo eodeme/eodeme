@@ -2,7 +2,7 @@ import areaNameToCode from '$lib/jsons/areaNameToCode.json';
 import places from '$lib/jsons/places.json';
 
 export const rows = [
-	{ city: 'jeju', areas: ['제주시', '제주시내', '애월', '한림', '조천', '구좌', '우도'] },
+	{ city: 'jeju', areas: ['제주시', '제주시내', '애월', '한림', '조천', '구좌'] },
 	{
 		city: 'seogwipo',
 		areas: ['서귀포시', '서귀포시내', '성산', '대정', '안덕', '중문', '남원', '표선']
