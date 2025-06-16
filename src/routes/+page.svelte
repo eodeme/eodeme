@@ -129,6 +129,16 @@
 
 	function openPlaceDetailsHandler({ place, leftTime }: { place: Place; leftTime: number }) {
 		return () => {
+			if (start) {
+				addToast({
+					data: {
+						title: '🛑',
+						description: '진행 중엔 다른 장소의 세부정보를 볼 수 없습니다.',
+						color: '#fff'
+					}
+				});
+				return;
+			}
 			selectedByOverlayPlace = { ...place, leftTime };
 
 			$openPlaceDetails = true;
