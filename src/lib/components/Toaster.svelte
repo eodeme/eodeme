@@ -25,7 +25,7 @@
 >
 	{#each $toasts as { id, data } (id)}
 		<header
-			class="shadow-[0_4px_8px_rgba(0, 0, 0, 0.3)] z-2 flex max-w-[360px] gap-1 bg-black p-[16px] font-[12px] text-white"
+			class="shadow-[0_4px_8px_rgba(0, 0, 0, 0.3)] z-2 flex max-w-[380px] gap-1 bg-black p-[16px] font-[12px] text-white"
 			use:melt={$content(id)}
 			animate:flip={{ duration: 500 }}
 			in:fly={{ duration: 150, y: 30 }}
