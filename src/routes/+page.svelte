@@ -44,6 +44,8 @@
 		leftTime: number;
 	};
 
+	let preventClickMapHandler = $state(false);
+
 	$effect(() => {
 		if (!randomSelectedPlace) return () => {};
 		if (!$map) return () => {};
@@ -52,34 +54,41 @@
 		const { coordinate } = randomSelectedPlace.result;
 
 		const clickMapHandler = (event: kakao.maps.event.MouseEvent) => {
-			if (!$map) throw new Error('Map is not initialized');
-			if (!randomSelectedPlace) throw new Error('No place selected');
+			setTimeout(() => {
+				if (!$map) throw new Error('Map is not initialized');
+				if (!randomSelectedPlace) throw new Error('No place selected');
 
-			const clickedCoordinate = event.latLng;
-			const distance = computeDistanceBetween(coordinate, {
-				latitude: clickedCoordinate.getLat(),
-				longitude: clickedCoordinate.getLng()
-			});
+				if (preventClickMapHandler) {
+					preventClickMapHandler = false;
+					return;
+				}
 
-			if (distance <= 1000) {
-				isFinished = true;
-				const created = createMarker($map, {
-					finished: isFinished,
-					leftTime,
-					coordinate: randomSelectedPlace.result.coordinate,
-					onClickOverlay: openPlaceDetailsHandler({
-						place: randomSelectedPlace,
-						leftTime
-					}),
-					place: randomSelectedPlace
+				const clickedCoordinate = event.latLng;
+				const distance = computeDistanceBetween(coordinate, {
+					latitude: clickedCoordinate.getLat(),
+					longitude: clickedCoordinate.getLng()
 				});
 
-				$openPlaceDetails = true;
+				if (distance <= 1000) {
+					isFinished = true;
+					const created = createMarker($map, {
+						finished: isFinished,
+						leftTime,
+						coordinate: randomSelectedPlace.result.coordinate,
+						onClickOverlay: openPlaceDetailsHandler({
+							place: randomSelectedPlace,
+							leftTime
+						}),
+						place: randomSelectedPlace
+					});
 
-				$playedPlacesAddresses.push(randomSelectedPlace.result.address);
-			} else {
-				addHintIndex();
-			}
+					$openPlaceDetails = true;
+
+					$playedPlacesAddresses.push(randomSelectedPlace.result.address);
+				} else {
+					addHintIndex();
+				}
+			});
 		};
 
 		kakao.maps.event.addListener($map, 'click', clickMapHandler);
@@ -130,6 +139,7 @@
 	function openPlaceDetailsHandler({ place, leftTime }: { place: Place; leftTime: number }) {
 		return () => {
 			if (start) {
+				preventClickMapHandler = true;
 				addToast({
 					data: {
 						title: '🛑',
