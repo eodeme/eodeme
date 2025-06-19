@@ -33,8 +33,7 @@
 					title: '<span aria-label="힌트">💡</span>',
 					description,
 					color: '#fff'
-				},
-				closeDelay: 0
+				}
 			});
 			hintLastIndex += 1;
 		}
