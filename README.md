@@ -6,7 +6,7 @@
 - 제주어 특유의 친근함과 구수한 느낌을 살리면서, _"어디에 있지"_ 를 제주어 느낌으로 표현
   > ℹ️ 제주어는 말끝에 '엉'이나 '와' 등 어미를 줄이는 표현을 사용합니다.
 
-[게임 기획 소개서](https://slides.com/muhun/where-is-this-locate-in-jeju) | [개발 중인 데모 보기](https://eodeme.github.io/eodeme/)
+[게임 기획 소개서](https://slides.com/muhun/where-is-this-locate-in-jeju) | [결과 보고서](https://slides.com/muhun/where-is-this-locate-in-jeju-result) | [데모 보기](https://eodeme.github.io/eodeme/)
 
 ## 개발 서버 실행하기
 
